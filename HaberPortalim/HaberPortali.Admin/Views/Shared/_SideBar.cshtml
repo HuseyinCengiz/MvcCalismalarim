@@ -1,0 +1,45 @@
+﻿<aside id="sidebar">
+    <!-- Sidebar header -->
+    <header class="sidebar-header">
+        <h1><img src="img/logo.png" alt="Saltkin"></h1>
+        <a href="#" id="make-compact"><span class="typcn typcn-th-menu"></span></a>
+        <a href="#" id="hide-menu"><span class="fa fa-caret-square-o-left"></span></a>
+    </header>
+    <!-- /Sidebar header -->
+    <!-- Sidebar group -->
+    <ul class="sidebar-group">
+        <li class="sidebar-group-header">Menü</li>
+        <li>
+            <a href="@Url.Action("Index","Home")"><i class="typcn typcn-home"></i> <span>Anasayfa</span></a>
+            <div class="sidebar-link-addon"><span class="badge bg-green">Yeni</span></div>
+        </li>
+        <li class="has-submenu">
+            <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Haber Yönetimi</span></a>
+            <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+            <!-- Sidebar submenu -->
+            <ul class="sidebar-submenu">
+                <li><a href="@Url.Action("Index","Haber")">Haber Liste</a></li>
+                <li><a href="@Url.Action("Ekle","Haber")">Haber Ekle</a></li>
+            </ul>
+            <!-- /Sidebar submenu -->
+        </li>
+        <li class="has-submenu">
+            <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Kategori Yönetimi</span></a>
+            <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+            <!-- Sidebar submenu -->
+            <ul class="sidebar-submenu">
+                <li><a href="@Url.Action("Index","Kategori")">Kategori Liste</a></li>
+                <li><a href="@Url.Action("Ekle","Kategori")">Kategori Ekle</a></li>
+            </ul>
+            <!-- /Sidebar submenu -->
+        </li>
+        <li class="has-submenu">
+            <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Slider Yönetimi</span></a>
+            <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+            <!-- Sidebar submenu -->
+            <ul class="sidebar-submenu">
+                <li><a href="@Url.Action("Index","Slider")">Slider Liste</a></li>
+                <li><a href="@Url.Action("Ekle","Slider")">Slider Ekle</a></li>
+            </ul>
+    </ul>
+</aside>

@@ -1,0 +1,42 @@
+﻿<div class="entry-widget">
+    <h5 class="widget-title">Kategoriler</h5>
+    <div class="accordion">
+        @{
+            int sayac = 1;
+        }
+        <!-- Accordion  -->
+        @foreach (Blogum.Models.UstKategori item in ViewBag.Kategoriler)
+        {
+            <div class="panel-group" id="accordion">
+                <!-- Start Accordion 1 -->
+                <div class="panel panel-default">
+                    <!-- Toggle Headin -->
+                    <h4 class="panel-title">
+                        <a data-parent="#accordion" data-toggle="collapse"
+                           href="#collapse-@sayac">
+                            <i class="ico-keyboard_arrow_right"></i> @item.UstKategoriAdi
+                        </a>
+                    </h4>
+                    <!-- Toggle Content -->
+                    <div class="panel-collapse collapse"
+                         id="collapse-@sayac">
+                        <div class="panel-body">
+                            <ul class="cat-menu-list">
+                                @foreach (var altkategori in item.Kategoris)
+                                {
+                                    <li>
+                                        <a href="/Home/Kategori/@altkategori.Id">
+                                            <i class="ico-keyboard_arrow_right">
+                                            </i> @altkategori.KategoriAdi
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- End Accordion 1 -->
+            </div>
+            sayac++;
+        }
+    </div>
+</div>

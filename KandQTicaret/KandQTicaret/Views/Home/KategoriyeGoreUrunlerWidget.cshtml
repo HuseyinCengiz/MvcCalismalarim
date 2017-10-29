@@ -1,0 +1,63 @@
+﻿@using KandQTicaret.Models
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Urun>
+
+<div class="row">
+    <div class="product_list_ph clearBoth">
+        @foreach (Urun item in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12 product" itemtype="http://schema.org/Product" itemscope="">
+                <div class="bg">
+                    <div class="inner">
+                        <div class="img_hover"></div>
+                        <img itemprop="image" src="@item.Resims.FirstOrDefault(x=>x.Varsayilan==true).OrtaYol" alt="" class="img-responsive first-image" />
+                        <div class="icons">
+                            <a href="#" class="add_to_cart main-color sepeteekle" data-id="@item.Id" title="Sepete Ekle"><i class="icon icon-shopping-cart"></i></a>
+                        </div>
+                        <div class="info">
+                            <h3 itemprop="name"><a itemprop="url" href="/Home/UrunDetay/@item.Id" title="see produt">@item.Adi</a></h3>
+                            <div class="price" itemtype="http://schema.org/Offer" itemscope="" itemprop="offers">
+                                @if (item.IndirimliMi)
+                                {
+                                    decimal indirimliFiyat = (item.Fiyat - ((item.Fiyat * item.IndirimOrani.Value) / 100));
+                                    <span class="price new-price" itemprop="price">@indirimliFiyat.ToString("C2")</span>
+                                    <span class="old-price">@item.Fiyat.ToString("C2")</span>
+                                }
+                                else
+                                {
+                                    <span class="price new-price" itemprop="price">@item.Fiyat.ToString("C2")</span>
+                                }
+                            </div>
+                        </div>
+                    </div><!-- .inner -->
+                    <div class="list_info">
+                        <h3><a href="/Home/UrunDetay/@item.Id" title="see produt">@item.Adi</a></h3>
+                        <div class="price">
+                            @if (item.IndirimliMi)
+                            {
+                                decimal indirimliFiyat = (item.Fiyat - ((item.Fiyat * item.IndirimOrani.Value) / 100));
+                                <span class="old-price">@item.Fiyat.ToString("C2")</span>
+                                <span class="price new-price" itemprop="price">@indirimliFiyat.ToString("C2")</span>
+                            }
+                            else
+                            {
+                                <span class="price new-price" itemprop="price">@item.Fiyat.ToString("C2")</span>
+                            }
+                        </div>
+                        @if (item.Aciklama != null)
+                        {
+                            <p>@item.Aciklama</p>
+                        }
+                        else
+                        {
+                            <p>Bu ürüne ait hiç açıklama bulunmamaktadır.</p>
+                        }
+                        <a href="#" class="button btn-primary sepeteekle" data-id="@item.Id">Sepete Ekle</a>
+                    </div><!-- .list_info -->
+                </div><!-- .bg -->
+            </div><!-- .product -->
+        }
+    </div><!-- .product_list_ph -->
+</div><!-- .row -->
+@Html.PagedListPager(Model, page => Url.Action("KategoriyeGoreUrunler", new RouteValueDictionary { { "id", ViewBag.KatId }, { "SiralamaSekli", ViewBag.siralamaSekli }, { "Page", page }, { "Renk", ViewBag.Renk }, { "Beden", ViewBag.Beden }, { "KFiyat", ViewBag.KucukFiyat }, { "BFiyat", ViewBag.BuyukFiyat } }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" }, new AjaxOptions { UpdateTargetId = "ajax_urun" }))

@@ -1,0 +1,173 @@
+﻿@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using KandQTicaret.Models
+@model Urun
+@section heads{
+    <style>
+        label.error {
+            color: red;
+        }
+    </style>
+}
+<!-- Horizontal form -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">Ekle</header>
+            <div class="panel-body">
+                @using (Html.BeginForm("UrunDuzenle", "Admin", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", id = "urunduzenleform", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Adı</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Adi" value="@Model.Adi" class="form-control">
+                        </div>
+                    </div>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Açıklama</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Aciklama" value="@Model.Aciklama" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Fiyat</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="Fiyat" value="@Model.Fiyat.ToString("0")" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Stok</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="Stok" value="@Model.Stok" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Resim</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="UrunResim">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    @if (Model.IndirimliMi == true)
+                                    {
+                                        @Html.CheckBox("IndirimliMi", true, htmlAttributes: new { id = "IndirimliMi" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBox("IndirimliMi", htmlAttributes: new { id = "IndirimliMi" })
+                                    }
+                                    İndirimde mi?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="indirimorani" style="display:none;">
+                        <label class="col-sm-2 control-label">İndirim Orani</label>
+                        <div class="col-sm-8">
+                            <input type="range" value="@Model.IndirimOrani" min="0" max="100" step="5" name="IndirimOrani" id="indirimoraniinput" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <p id="indirimoranivalue">@Model.IndirimOrani</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kategori</label>
+                        <div class="col-sm-10 ">
+                            <select name="KategoriID" id="KategoriID" class="form-control">
+                                <option value="0">Kategori Seçiniz</option>
+                                @foreach (Kategori item in ViewBag.Kategoriler)
+                                {
+                                    if (item.Adi.Equals(Model.Kategori.Adi))
+                                    {
+                                        <option value="@item.Id" selected>@item.Adi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Id">@item.Adi</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Marka</label>
+                        <div class="col-sm-10 ">
+                            <select name="MarkaID" id="MarkaID" class="form-control">
+                                <option value="0">Marka Seçiniz</option>
+                                @foreach (Marka item in ViewBag.Markalar)
+                                {
+                                    if (item.Adi.Equals(Model.Marka.Adi))
+                                    {
+                                        <option value="@item.Id" selected>@item.Adi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Id">@item.Adi</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tedarikçiler</label>
+                        <div class="col-sm-10 ">
+                            <select name="TedarikciID" id="TedarikciID" class="form-control">
+                                <option value="0">Tedarikçi Seçiniz</option>
+                                @foreach (Tedarikci item in ViewBag.Tedarikciler)
+                                {
+                                    if (item.SirketAdi.Equals(Model.Tedarikci.SirketAdi))
+                                    {
+                                        <option value="@item.Id" selected>@item.SirketAdi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Id">@item.SirketAdi</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-4">
+                            <button type="submit" class="btn btn-default">Kaydet</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="/Scripts/jquery-validation/jquery.validate.js"></script>
+    <script src="/Scripts/CommonScript.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#IndirimliMi").click(function () {
+                if ($("#IndirimliMi").is(":checked")) {
+                    $("#indirimorani").slideDown();
+                }
+                else {
+                    $("#indirimorani").slideUp();
+                }
+            });
+            $(document).on('input change', '#indirimoraniinput', function () {
+                $('#indirimoranivalue').html($(this).val());
+            });
+            if ($("#IndirimliMi").is(":checked")) {
+                $("#indirimorani").slideDown();
+            }
+            else {
+                $("#indirimorani").slideUp();
+            }
+        });
+
+    </script>
+}
+<!-- /Horizontal form -->

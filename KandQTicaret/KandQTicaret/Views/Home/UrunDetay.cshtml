@@ -1,0 +1,237 @@
+﻿@using KandQTicaret.Models
+@model Urun
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@section heads{
+    <link href="/Layout/KandQ/css/product.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/selectBox.css" rel="stylesheet" type="text/css" />
+}
+<div class="columns row">
+    <div class="col-xs-12">
+        <div class="breadcrumb">
+            <a class="home" title="Return to Home" href="/Home/Index/">Anasayfa</a>
+            <span class="navigation-pipe">&raquo;</span>
+            <span class="navigation_page">
+                <span itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <a title="Products" href="#" itemprop="item">
+                        <span itemprop="name">Ürün</span>
+                    </a>
+                </span>
+                <span class="navigation-pipe">&raquo;</span>
+                @Model.Adi
+            </span>
+        </div><!-- .breadcrumb -->
+    </div>
+
+    <div class="center_column col-md-9 col-sm-8 col-xs-12 col-md-push-3 col-sm-push-4">
+        <div class="background">
+
+            <div id="primary_block" class="row clearfix" itemtype="http://schema.org/Product" itemscope="">
+                <div class="product-photo col-md-5 col-sm-5">
+                    <div id="image-block">
+                        <span class="labels">
+                            <span class="new">new</span>
+                            <span class="sale">sale</span>
+                        </span>
+                        <span id="view_full_size">
+                            <a href="@Model.Resims.FirstOrDefault(x=>x.Varsayilan==true).OrtaYol" class="image-zoom">
+                                <span class="hover_bg">
+                                    <i class="icon icon-search"></i>
+                                </span>
+                                <img class="img-responsive" id="bigpic" alt="@Model.Adi" title="@Model.Adi" src="@Model.Resims.FirstOrDefault(x=>x.Varsayilan==true).OrtaYol" itemprop="image">
+                            </a>
+                        </span>
+                    </div><!-- #image-block-->
+                    @if (Model.Resims.Count > 1)
+                    {
+                        <div id="views_block" class="clearfix">
+                            <div id="thumbs_list" class="carousel-style">
+                                <a class="arrow-ph arrow-prev" title="Previous slide" href="#">
+                                    <i class="icon icon-angle-left"></i>
+                                </a>
+                                <div id="thumbs_list_frame" class="owl-carousel-ph" data-max-items="3">
+                                    @foreach (var item in Model.Resims)
+                                    {
+                                        if (item.Varsayilan != true)
+                                        {
+                                            <div class="item">
+                                                <a href="@item.OrtaYol">
+                                                    <span class="hover_bg"><i class="icon icon-search"></i></span>
+                                                    <img src="@item.KucukYol" alt="" class="img-responsive" width="80" />
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <a class="arrow-ph arrow-next" title="Next slide" href="#">
+                                    <i class="icon icon-angle-right"></i>
+                                </a>
+                            </div>
+                        </div><!-- #views_block -->
+                    }
+                </div><!-- .product-photo -->
+
+                <div class="product-desc col-md-7 col-sm-7">
+                    <h1 itemprop="name">@Model.Adi</h1>
+                    <div id="short_description_content" class="rte" itemprop="description">
+                        @if (Model.Aciklama != null)
+                        {
+                            <p>@Model.Aciklama</p>
+                        }
+                        else
+                        {
+                            <p>Açıklama Yok.</p>
+                        }
+                    </div><!-- .short_description_content -->
+
+                    <div class="info-box" itemscope itemtype="http://schema.org/Offer">
+                        <p id="availability_statut">
+                            <label>Durum</label>
+                            @if (Model.Stok > 0)
+                            {
+                                <span itemprop="availability">Stokta</span>
+                            }
+                            else
+                            {
+                                <span class="warning_inline">Stokta Yok</span>
+                            }
+                        </p>
+                        <p>
+                            <label>Miktar</label>
+                            <span>@Model.Stok</span>
+                        </p>
+
+                    </div><!-- .info-box -->
+
+                    <div class="product_attributes">
+                        @foreach (var tip in ViewBag.Ozellikler)
+                        {
+                            if (tip.Key == "Renk")
+                            {
+                                <fieldset class="attribute_fieldset">
+                                    <label>Renk:</label>
+                                    <div class="attribute_list">
+                                        <ul id="color_to_pick_list">
+                                            @{
+                                                int sayac = 0;
+                                                foreach (OzellikDeger item in tip.Value)
+                                                {
+                                                    if (sayac == 0)
+                                                    {
+                                                        <li class="selected"><a href="#" style="background:@item.Adi;"></a></li>}
+                                                    else
+                                                    {
+                                                        <li><a href="#" style="background:@item.Adi;"></a></li>
+                                                    }
+                                                }
+                                                sayac = 0;
+                                            }
+                                        </ul>
+                                    </div>
+                                </fieldset>
+                                                }
+                                                else
+                                                {
+                                                    <fieldset class="attribute_fieldset">
+                                                        <label>@tip.Key:</label>
+                                                        <div class="attribute_list">
+                                                            <select>
+                                                                @foreach (OzellikDeger item in tip.Value)
+                                                                {
+                                                                    <option>@item.Adi</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </fieldset>
+                                                    }
+                                                }
+                    </div><!-- .product_attributes -->
+
+                    <p id="quantity_wanted_p">
+                        <label>Miktar:</label>
+                        <span class="counter">
+                            <input id="quantity_wanted" class="text" type="text" maxlength="3" size="2" value="1" name="qty" />
+                            <a class="btn-q more" href="#"><i class="icon icon-plus"></i></a>
+                            <a class="btn-q less" href="#"><i class="icon icon-minus"></i></a>
+                        </span>
+                    </p>
+
+                    <div class="content_prices main-color" itemscope itemtype="http://schema.org/Offer">
+                        <p class="pull-left">
+                            @if (Model.IndirimliMi)
+                            {
+                                decimal indirimliFiyat = (Model.Fiyat - ((Model.Fiyat * Model.IndirimOrani.Value) / 100));
+                                <span id="old_price_display">@Model.Fiyat.ToString("C2")</span>
+                                <span id="our_price_display" itemprop="price">@indirimliFiyat.ToString("C2")</span>
+
+                                <span id="reduction_percent_display">@Model.IndirimOrani%</span>
+                            }
+                            else
+                            {
+                                <span id="our_price_display" itemprop="price">@Model.Fiyat.ToString("C2")</span>
+                            }
+                        </p>
+                        <p id="add_to_cart" class="pull-right">
+                            <button class="button btn-primary sepeteekle" data-id="@Model.Id" name="Submit" type="submit">Sepete Ekle</button>
+                        </p>
+                    </div><!-- .content_prices -->
+
+                </div><!-- .product-desc -->
+
+                <div class="col-xs-12" style="margin-top:20px;">
+                    <section class="page-product-box popular_products carousel-style">
+                        <div class="heading_block margin-bottom">
+                            <h4 class="pull-left">
+                                <i class="icon icon-thumbs-o-up main-color"></i>
+                                <strong>Aynı Kategorideki</strong> Diğer Ürünler
+                            </h4>
+                            <div class="arrow_container pull-right">
+                                <a href="#" class="arrow-ph arrow-prev" title="Previous slide"><i class="icon icon-angle-left"></i></a>
+                                <a href="#" class="arrow-ph arrow-next" title="Next slide"><i class="icon icon-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="product_list_ph owl-carousel-ph clearBoth" data-max-items="3">
+                                @foreach (Urun item in ViewBag.DigerUrunler)
+                                {
+                                    <div class="col-md-4 col-sm-6 col-xs-12 product" itemtype="http://schema.org/Product" itemscope="">
+                                        <div class="inner">
+                                            <div class="img_hover"></div>
+                                            <img itemprop="image" src="@item.Resims.FirstOrDefault(x=>x.Varsayilan==true).OrtaYol" alt="" class="img-responsive" />
+                                            <div class="icons">
+                                                <a href="#" class="add_to_cart main-color sepeteekle" data-id="@item.Id" title="Sepete Ekle"><i class="icon icon-shopping-cart"></i></a>
+                                            </div>
+                                            <div class="info">
+                                                <h3 itemprop="name"><a itemprop="url" href="#" title="see produt">@item.Adi</a></h3>
+                                                <div class="price" itemtype="http://schema.org/Offer" itemscope="" itemprop="offers">
+                                                    @if (item.IndirimliMi)
+                                                    {
+                                                        decimal indirimliFiyat = (Model.Fiyat - ((Model.Fiyat * Model.IndirimOrani.Value) / 100));
+                                                        <span class="price new-price" itemprop="price">@indirimliFiyat.ToString("C2")</span>
+                                                        <span class="old-price">@item.Fiyat.ToString("C2")</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="price new-price" itemprop="price">@item.Fiyat.ToString("C2")</span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div><!-- .product_list_ph -->
+                        </div><!-- .row -->
+                    </section><!-- popular-products -->
+                </div><!-- .col-xs-12 -->
+            </div><!-- #primary_block -->
+        </div><!-- .background -->
+    </div><!--. center_column -->
+    @{Html.RenderAction("Kategoriler", "Home");}
+</div><!-- .columns -->
+@section scripts{
+    <script src="/Layout/KandQ/js/plugins/jquery.selectBox.js"></script>
+    <script src="/Layout/KandQ/js/plugins/jquery.magnific-popup.min.js"></script>
+}

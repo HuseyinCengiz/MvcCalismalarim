@@ -1,0 +1,29 @@
+﻿@model JqueryDialogExample.Models.KullaniciList
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Müşteriler</h2>
+@using (Ajax.BeginForm("Index", "Kullanici", FormMethod.Post, new AjaxOptions { OnSuccess = "bas" }))
+{
+    <div id="search_main">
+        <p>İsim</p>
+        <br />
+        @Html.TextBoxFor(m => m.Ad)
+
+        <p>Soyisim</p>
+        <br />
+        @Html.TextBoxFor(m => m.Soyad)
+        <br />
+        <input type="submit" value="Ara" />
+    </div>
+}
+<div id="ajax_main">
+    @Html.Partial("_Kullanici", Model)
+</div>
+@section scripts{
+    <script>
+        function bas(gelenpartialview) {
+            $("#ajax_main").html(gelenpartialview);
+        }
+    </script>
+}

@@ -1,0 +1,176 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META SECTION -->
+    <title>Admin Paneli</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="/Content/AdminTheme/favicon.ico" type="image/x-icon" />
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="/Content/AdminTheme/css/theme-default.css" />
+    <link href="~/Content/AdminTheme/css/sweetalert.css" rel="stylesheet" />
+    <!-- EOF CSS INCLUDE -->
+    @RenderSection("heads", false)
+</head>
+<body>
+    <!-- START PAGE CONTAINER -->
+    <div class="page-container">
+        <!-- START PAGE SIDEBAR -->
+        <div class="page-sidebar" style="height:100%;">
+            <!-- START X-NAVIGATION -->
+            <ul class="x-navigation">
+                <li class="xn-logo">
+                    <a href="/Admin/Index">Hüseyin</a>
+                    <a href="/Admin/Index" class="x-navigation-control"></a>
+                </li>
+                @{ Html.RenderAction("IndexProfil", "Admin");}
+                <li class="xn-title">Yönlendirmeler</li>
+                <li class="active">
+                    <a href="/Admin/Index"><span class="fa fa-desktop"></span> <span class="xn-text">Anasayfa</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Üst Kategoriler</span></a>
+                    <ul>
+                        <li><a href="/Admin/UstKategoriler"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Admin/UstKategoriEkle"><span class="fa fa-plus"></span> Ekle</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Alt Kategoriler</span></a>
+                    <ul>
+                        <li><a href="/Admin/Kategoriler"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Admin/KategoriEkle"><span class="fa fa-plus"></span> Ekle</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Makaleler</span></a>
+                    <ul>
+                        <li><a href="/Admin/Makaleler"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Admin/MakaleEkle"><span class="fa fa-plus"></span> Ekle</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Etiketler</span></a>
+                    <ul>
+                        <li><a href="/Admin/Etiketler"><span class="fa fa-list"></span> Liste</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Profiller</span></a>
+                    <ul>
+                        <li><a href="/Admin/Profiller"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Admin/ProfilEkle"><span class="fa fa-list"></span> Ekle</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Kullanıcılar</span></a>
+                    <ul>
+                        <li><a href="/Kullanici/Kullanicilar"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Kullanici/RolAta"><span class="fa fa-list"></span> Kullanıcıya Rol Ata</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Roller</span></a>
+                    <ul>
+                        <li><a href="/Kullanici/Roller"><span class="fa fa-list"></span> Liste</a></li>
+                        <li><a href="/Kullanici/RolEkle"><span class="fa fa-list"></span> Ekle</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END X-NAVIGATION -->
+        </div>
+        <!-- END PAGE SIDEBAR -->
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+
+            <!-- START X-NAVIGATION VERTICAL -->
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                <!-- TOGGLE NAVIGATION -->
+                <li class="xn-icon-button">
+                    <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                </li>
+                <!-- END TOGGLE NAVIGATION -->
+                <!-- SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                </li>
+                <!-- END SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a href="/Home/Index"><span class="fa fa-home"></span></a>
+                </li>
+            </ul>
+            <!-- END X-NAVIGATION VERTICAL -->
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li><a href="/Admin/Index">Admin</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ul>
+            <!-- END BREADCRUMB -->
+            <!-- PAGE CONTENT WRAPPER -->
+            <div class="page-content-wrap">
+                @RenderBody()
+            </div>
+            <!-- END PAGE CONTENT WRAPPER -->
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!-- MESSAGE BOX-->
+    <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+        <div class="mb-container">
+            <div class="mb-middle">
+                <div class="mb-title"><span class="fa fa-sign-out"></span> Çıkış <strong>Yap</strong> ?</div>
+                <div class="mb-content">
+                    <p>Çıkmak İsteğinize Emin Misiniz ?</p>
+                    <p>Eğer İşlerinize Devam Etmek İstiyorsanız Hayıra Basınız. Çıkmak İstiyorsanız Evete Basınız.</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right">
+                        <a href="/Kullanici/CikisYap" class="btn btn-success btn-lg">Yes</a>
+                        <button class="btn btn-default btn-lg mb-control-close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MESSAGE BOX-->
+    <!-- START PRELOADS -->
+    <audio id="audio-alert" src="/Content/AdminTheme/audio/alert.mp3" preload="auto"></audio>
+    <audio id="audio-fail" src="/Content/AdminTheme/audio/fail.mp3" preload="auto"></audio>
+    <!-- END PRELOADS -->
+    <!-- START SCRIPTS -->
+    <!-- START PLUGINS -->
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/js/sweetalert.min.js"></script>
+    <script src="~/Content/AdminTheme/js/plugins/jquery-validation/jquery.validate.js"></script>
+    <script type="text/javascript" src="/Content/Global.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- END PLUGINS -->
+    <!-- START THIS PAGE PLUGINS-->
+    <script type='text/javascript' src='/Content/AdminTheme/js/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+    <script type='text/javascript' src='/Content/AdminTheme/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/owl/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/moment.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- END THIS PAGE PLUGINS-->
+    <!-- START TEMPLATE -->
+    <script type="text/javascript" src="/Content/AdminTheme/js/settings.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/actions.js"></script>
+    <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->
+    @RenderSection("scripts", false)
+</body>
+</html>
+
+

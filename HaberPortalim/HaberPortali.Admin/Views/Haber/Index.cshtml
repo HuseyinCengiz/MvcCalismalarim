@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<HaberPortali.Data.Model.Haber>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Haber Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <!-- Responsive table -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">@ViewBag.Title</header>
+            <div class="panel-body">
+                @if (TempData["Bilgi"] != null)
+                {
+                    <div class="alert alert-success">@TempData["Bilgi"]</div>
+                }
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Resim</th>
+                                <th>Başlık</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>Kategori</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><span class="label label-success">@item.ID</span></td>
+                                    <td><img src="@item.Resim" width="100" alt="@item.Baslik" /></td>
+                                    <td>@item.Baslik</td>
+                                    <td>
+                                        @item.EklenmeTarihi.ToString("MM.dd.yyyy")
+                                    </td>
+                                    <td>@item.Kategori.KategoriAdi</td>
+                                    <td>
+                                        @if (item.AktifMi == true)
+                                        {
+                                            <b class="label label-success">Aktif</b>
+                                        }
+                                        else
+                                        {
+                                            <b class="label label-danger">Pasif</b>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Onay","Haber",new { ID=item.ID})" class=" btn btn-default btn-sm">Aktif / Pasif Yap</a>
+                                        <a href="@Url.Action("Duzenle", "Haber", new { ID = item.ID })" class="btn btn-default btn-sm">Düzenle</a>
+                                        @*    @Html.ActionLink("Sil", "Sil", new { ID = item.ID}, new {onclick="return confirm('Kaydı Silmek İstediğinize Emin misiniz ?')"})*@
+                                        @*   <button class="btn btn-default btn-sm"  data-id="@item.ID">Sil</button>*@
+                                        <a href="@Url.Action("Sil","Haber",new { ID=item.ID})" class="btn btn-default btn-sm">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        @Html.PagedListPager(Model, Sayfa => Url.Action("Index", new { Sayfa }), PagedListRenderOptions.Classic)
+    </div>
+    <!-- /Responsive table -->
+</div>
+

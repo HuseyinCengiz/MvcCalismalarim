@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Kategori Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models
+@model Kategori
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/KategoriDuzenle" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Kategori</strong> Düzenleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Üst Kategori</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="UstKategoriID" class="form-control">
+                                <option value="0">Üst Kategori Seçiniz</option>
+                                @foreach (UstKategori item in ViewBag.UstKategoriler)
+                                {
+
+                                    <option value="@item.Id">@item.UstKategoriAdi</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kategori Adı</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="hidden" name="Id" value="@Model.Id" />
+                                <input type="text" class="form-control" value="@Model.KategoriAdi" name="KategoriAdi" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <button class="btn btn-primary pull-right">Düzenle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

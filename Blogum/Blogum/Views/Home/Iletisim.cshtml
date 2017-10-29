@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<div class="post-quote text-center">
+    <blockquote>
+        <div class="icon">
+            <i class="ico-bookmark"></i>
+        </div>
+        <p>
+            Benimle Bu Form Yardımıyla İletişime Geçebilirsiniz.
+        </p>
+    </blockquote>
+</div>
+<div class="contact-form">
+    @using (Ajax.BeginForm("Iletisim", "Home", FormMethod.Post, new AjaxOptions { OnSuccess = "basarili" }, htmlAttributes: new { id = "iletisimform" }))
+    {
+        <div class="col-md-12">
+            <div class="form-group">
+                <input class="form-control" name="AdSoyad" id="AdSoyad" placeholder="Ad Soyad" type="text" />
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="Email" id="Email" placeholder="Email" type="email" />
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="Konu" id="Konu" placeholder="Konu" type="text" />
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="Mesaj" id="Mesaj" placeholder="Mesaj" rows="5"></textarea>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-common btn-sn" id="submit" value="Mesajı Gönder" />
+            <div class="h3 text-center hidden" id="msgSubmit"></div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>
+@section scripts{
+    <script src="~/Content/BlogTheme/js/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#iletisimform").validate({
+                rules: {
+                    "AdSoyad": {
+                        required: true
+                    },
+                    "Email": {
+                        required: true,
+                        email: true
+                    },
+                    "Mesaj": {
+                        required: true,
+                    }
+                },
+                messages: {
+                    "AdSoyad": {
+                        required: "Adınız Boş Geçilemez!",
+                    },
+                    "Email": {
+                        required: "Email Boş Geçilemez!",
+                        email: "Lütfen Geçerli Bir Email Adresi Giriniz."
+                    },
+                    "Mesaj": {
+                        required: "Mesaj Boş Geçilemez!",
+                    }
+                }
+            });
+        });
+
+        function basarili(veri) {
+            if (veri.IsSuccess) {
+                swal("Başarılı!", veri.Message, "success");
+            }
+            else {
+                swal("Hatalı!", veri.Message, "error");
+            }
+        }
+    </script>
+
+}

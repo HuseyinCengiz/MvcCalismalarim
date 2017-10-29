@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="images/ico/favicon.ico">
+
+	<title>Madrid Theme - Shopping Cart</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+	<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<link href="css/order.css" rel="stylesheet" type="text/css" />
+	<link href="css/modules/ph_megamenu.css" rel="stylesheet" type="text/css" />
+	<link href="css/modules/ph_simpleblog.css" rel="stylesheet" type="text/css" />
+	<link href="css/selectBox.css" rel="stylesheet" type="text/css" />
+
+	<script src="js/libraries/modernizr.js"></script>
+
+<body id="order" itemtype="http://schema.org/WebPage" itemscope="">
+	<div class="topbar">
+		<div class="container">
+			
+				<div id="ph_currencies_block_top" class="pull-left select-options">
+					<form action="#" method="post">
+						<p>
+							Currency:
+							<span>USD</span>
+							<i class="icon icon-chevron-down"></i>
+						</p>
+						<ul>
+							<li class="selected"><a href="#" title="Dollar" rel="nofollow">Dollar</a></li>
+							<li><a href="#" title="Euro" rel="nofollow">Euro</a></li>
+							<li><a href="#" title="British" rel="nofollow">British pound</a></li>
+							<li><a href="#" title="Złoty" rel="nofollow">Polish zloty</a></li>
+						</ul>
+					</form>
+				</div><!-- #ph_currencies_block_top -->
+
+				<div id="ph_languages_block_top" class="pull-left select-options">
+					<p class="selected_language">
+						Language:
+						<span>English</span>
+						<i class="icon icon-chevron-down"></i>
+					</p>
+					<ul>
+						<li class="selected"><a href="#" title="English">English</a></li>
+						<li><a href="#" title="German">German</a></li>
+						<li><a href="#" title="French">French</a></li>
+						<li><a href="#" title="Spanish">Spanish</a></li>
+					</ul>
+				</div><!-- ph_languages_block_top -->
+
+				<div class="col-lg-8 col-md-7 hidden-xs shortlinks pull-right">
+					<ul class="nolist row pull-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Wishlist</a></li>
+						<li><a href="#">Check out</a></li>
+						<li><a href="#">Sign in</a></li>
+					</ul>
+				</div><!-- .shortlinks -->
+			
+		</div><!-- .container -->
+	</div><!-- .topbar -->
+
+	<header class="top">
+		<div class="container">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="row">
+					<a href="#" class="logo" title="back to the homepage"><img src="images/logo.png" alt="Madrid" class="img-responsive" /></a>
+				</div>
+			</div>
+			<div id="search_block_top" class="col-lg-offset-3 col-md-offset-2 col-sm-offset-1 col-md-3 col-sm-4 col-xs-12">
+				<form method="get" action="#" id="searchbox" class="row">
+					<p>
+						<input class="search_query" type="text" id="search_query_top" name="search_query" placeholder="Type to search..." value="" />
+						<span>
+							<i class="icon icon-search"></i>
+							<input class="main-color" type="submit" value="ok" />
+						</span>
+					</p>
+				</form>
+			</div><!-- .search_block_top -->
+
+			<div class="col-sm-4 col-xs-12 shopping-cart-mobile visible-sm visible-xs">
+				<div class="row">
+					<a class="cart-contents" rel="nofollow" title="see basket" href="#">
+						<span class="pull-left">
+							Shopping cart:
+							<span class="ajax_cart_quantity">1</span>
+							<span class="ajax_cart_product_txt">products</span>
+						</span>
+					</a>
+				</div>
+			</div><!-- .shopping-cart-mobile -->
+
+			<div class="col-lg-3 col-md-4 hidden-sm hidden-xs shopping_cart pull-right">
+				<div class="row">
+					<p>Welcome visitor! You can <a href="form.html" title="register account">sign in</a>.</p>
+					<a id="showCart" class="cart-contents" rel="nofollow" title="see basket" href="#">
+						<span class="pull-left">
+							Shopping cart:
+							<span class="ajax_cart_quantity">1</span>
+							<span class="ajax_cart_product_txt">products</span>
+							<i class="icon icon-chevron-down pull-right"></i>
+						</span>
+						<i class="pull-left icon icon-shopping-cart main-color"></i>
+					</a>
+				</div>
+
+				<div class="cart_block block exclusive">
+					<div class="block_content">
+						<div class="cart_block_list">
+							<dl class="products">
+								<dt class="first_item last_item">
+									<a title="Example product" href="#" class="cart-images">
+										<img alt="Example product" src="images/products/small.jpg" />
+									</a>
+									<div class="cart-info">
+										<div class="product-name">
+											<span class="quantity-formated">
+												<span class="quantity">1</span>x&nbsp;
+											</span>
+											<a class="cart_block_product_name" title="Example product" href="#">Example product</a>
+										</div>
+										<div class="product-atributes">
+											<a title="Example product" href="#">Black, S</a>
+										</div>
+										<span class="price">554,90 zł</span>
+										<span class="remove_link">
+											<a href="#" class="ajax_cart_block_remove_link" rel="nofollow"></a>
+										</span>
+									</div>
+								</dt>
+								<dd></dd>
+							</dl>
+							<p class="cart_block_no_products" style="display: none;"> No products</p>
+							<div class="cart-prices">
+								<div class="cart-prices-line first-line"> 
+									<span>Shipping:</span>
+									<span class="price">23,54 zł</span> 
+								</div>
+								<div class="cart-prices-line last-line"> 
+									<span>Total:</span>
+									<span class="price">578,44 zł</span> 
+								</div>
+							</div>
+							<p class="clearBoth cart-buttons"> 
+								<a rel="nofollow" title="Check out" href="shopping-cart.html" class="button" id="button_order_cart"> 
+									Check out
+								</a>
+							</p>
+						</div>
+					</div>
+				</div><!-- .cart_block -->
+			</div>
+
+			<div class="ph_megamenu_mobile_toggle">
+				<a class="show_megamenu" href="#"><i class="icon icon-bars"></i>Show menu</a> 
+				<a class="hide_megamenu" href="#"><i class="icon icon-times"></i>Hide menu</a>
+			</div>
+			<div id="ph_megamenu_wrapper">
+			<nav role="navigation">
+				<ul class="ph_megamenu" id="ph_megamenu">
+					<li><a title="Home" href="index-main.html"><i class="icon icon-home"></i></a></li>
+					<li class="has-submenu"><a href="#">Products</a>
+						<div class="mega-menu clear clearfix">
+							<div>
+								<div class="ph-type-6 ">
+									<h3>Our best products</h3>
+									<div class="product_list_ph">
+										<div class="ph_product_item ph-col ph-col-3">
+											<div class="inner">
+												<div class="ph_product_image"> 
+													<div class="img_hover"></div>
+													<img title="Gray T-shirt" alt="Gray T-shirt" src="images/products/big.jpg" class="replace-2x img-responsive">
+												</div><!-- .ph_product_image -->
+												<div class="ph_product_info">
+													<p class="ph_product_name"> 
+														<a title="Gray T-shirt" href="#"> Gray T-shirt </a>
+													</p>
+													<div class="ph_product_price"> 
+														<span class="price product-price"> $32.20 </span>
+													</div>
+												</div><!-- .ph_product_info -->
+											</div>
+										</div><!-- .ph_product_item -->
+
+										<div class="ph_product_item ph-col ph-col-3">
+											<div class="inner">
+												<div class="ph_product_image"> 
+													<div class="img_hover"></div>
+													<img title="Gray T-shirt" alt="Gray T-shirt" src="images/products/big.jpg" class="replace-2x img-responsive">
+												</div><!-- .ph_product_image -->
+												<div class="ph_product_info">
+													<p class="ph_product_name"> 
+														<a title="Gray T-shirt" href="#"> Gray T-shirt </a>
+													</p>
+													<div class="ph_product_price"> 
+														<span class="price product-price"> $32.20 </span>
+													</div>
+												</div><!-- .ph_product_info -->
+											</div>
+										</div><!-- .ph_product_item -->
+										
+									</div><!-- .product_list_ph -->
+								</div>
+							</div>
+						</div>	
+					</li>
+					<li class="has-submenu"> <a title="PrestaHome" href="http://www.prestahome.com/"> <span class="">PrestaHome</span></a>
+						<ul class="dropdown">
+							<li class="with-icon"> <a href="#"> <i class="icon icon-facebook"></i> Facebook </a></li>
+							<li class="with-icon"> <a href="#"> <i class="icon icon-twitter"></i> Twitter </a></li>
+							<li class="with-icon"> <a href="#"> <i class="icon icon-heart"></i> Prestahome </a></li>
+						</ul>
+					</li>
+					<li class="has-submenu"> <a title="Customer Support" href="#"> <span>Support</span></a>
+						<div class="mega-menu clear clearfix">
+							<div>
+								<div class="ph-type-5 ph-col ph-col-3">
+									<p><img alt="image" src="images/products/mega.jpg"></p>
+									<h3>Our team can help</h3>
+								</div>
+								<div class="ph-type-5 ph-col ph-col-4">
+									<p>Fusce pretium dui sem, a finibus arcu finibus et. Sed eu arcu vel tortor varius cursus in at sapien. In accumsan suscipit metus non egestas. Aenean et nibh dui. Nunc gravida et sem in vulputate. Nullam at urna sit amet felis ornare varius. Curabitur massa nunc, ultricies vitae dapibus ac, sodales laoreet ante. Aenean vestibulum massa magna, a gravida neque euismod nec.</p>
+								</div>
+								<div class="ph-type-4 ph-col ph-col-3">
+									<div class="col-md-12">
+										<h3 class="ph-mega-categories-cat-title"> <a title="Women" href="#"> Women</a></h3>
+										<ul class="ph-mega-categories-list-lvl-1">
+											<li><a title="Tops" href="#"> Tops </a></li>
+											<li><a title="Dresses" href="#"> Dresses </a></li>
+											<li><a title="T-shirts" href="#"> T-shirts </a></li>
+											<li><a title="Skirts" href="#"> Skirts </a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="has-submenu"> 
+						<a title="Extra menu" href="#"> 
+						<span class="">Extra menu</span>
+						<span style="color:#ededed;background:#ededed;" class="label"> 
+							<span style="color: #333333;">Must see</span> 
+						</span>
+						</a>
+						<div class="mega-menu clear clearfix">
+							<div class="">
+								<div class="ph-type-5 ph-col ph-col-3">
+									<h3> Test banner in menu</h3>
+									<p><img alt="image" src="images/products/mega.jpg"></p>
+								</div>
+								<div class="ph-type-5 ph-col ph-col-3">
+									<h3> About our technology</h3>
+									<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque id nulla sed dui vehicula tempor eget non mauris.</p>
+									<p>Nullam vel gravida quam. In id pretium metus. Maecenas mollis, nunc sit amet aliquam pulvinar, enim tellus convallis risus, sit amet feugiat purus mauris id mauris. Morbi ac libero sit amet lectus lacinia mattis at ut turpis. Nunc tristique nisl dignissim tellus pretium, nec sagittis justo sodales.</p>
+								</div>
+								<div class="ph-type-5 ph-col ph-col-3">
+									<h3> You may like also...</h3>
+									<p><img alt="image" src="images/products/mega.jpg"></p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="has-submenu"> <a title="Categories" href="category.html"> <span class="">Categories</span></a>
+						<ul class="ph-dropdown-categories dropdown">
+							<li> <a href="#">Women</a>
+								<ul class="dropdown">
+									<li><a href="#"> Tops </a></li>
+									<li><a href="#"> Dresses </a></li>
+									<li><a href="#"> T-shirts </a></li>
+									<li><a href="#"> Skirts </a></li>
+								</ul>
+							</li>
+							<li><a href="#"> Men</a>
+								<ul class="dropdown">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Coats &amp; Example products</a></li>
+									<li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+									<li><a href="#">Jeans</a></li>
+									<li><a href="#">T-shirts</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a title="Text page" href="text.html"><span>Text page</span></a></li>
+					<li><a href="#">Subpages</a>
+						<ul class="dropdown">
+							<li><a href="404.html">404</a></li>
+							<li><a href="blog-grid.html">Blog - grid view</a></li>
+							<li><a href="blog-list.html">Blog - list view</a></li>
+							<li><a href="blog-single.html">Blog - single</a></li>
+							<li><a href="category.html">Category</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="elements.html">Elements</a></li>
+							<li><a href="form.html">Form</a></li>
+							<li><a href="index-boxed.html">Home - boxed version</a></li>
+							<li><a href="index-full.html">Home - one column</a></li>
+							<li><a href="index-right.html">Home - right column</a></li>
+							<li><a href="index-sticky.html">Home with sticky header</a></li>
+							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="product.html">Product cart</a></li>
+							<li><a href="shopping-cart.html">Shopping Cart</a></li>
+							<li><a href="sitemap.html">Sitemap</a></li>
+							<li><a href="text.html">Text page</a></li>
+						</ul>
+					</li>
+					<li class="with-icon"><a title="Contact" href="contact.html"> <i class="icon icon-envelope"></i> <span class="">Contact</span></a></li>
+				</ul> 
+			</nav>
+			</div>
+		</div><!-- .container -->
+	</header>
+
+	<div class="container content">
+		<div class="columns row">	
+			<div class="col-xs-12">
+				<div class="breadcrumb">
+					<a class="home" title="Return to Home" href="#">Home</a>
+					<span class="navigation_page">
+					<span class="navigation-pipe">&raquo;</span>
+						Shopping cart
+					</span>
+				</div><!-- .breadcrumb -->
+			</div>
+
+			<div class="center_column col-xs-12">
+				<div class="background">
+					<div id="order-detail-content" class="clearBoth">
+						<h1>Shopping cart summary</h1>
+						<span class="heading-counter">Amount of your products: <span>3</span></span>
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="cart_product first_item">Product</th>
+									<th class="cart_description item">Description</th>
+									<th class="cart_avail item text-center">Avail</th>
+									<th class="cart_unit item text-right">Unit price</th>
+									<th class="cart_quantity item text-center">Amount</th>
+									<th class="cart_total item text-right">Total</th>
+									<th class="cart_delete last_item">&nbsp;</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr class="cart_total_price">
+									<td class="cart_voucher" id="cart_voucher" colspan="7">
+										<form id="voucher" method="post" action="#">
+											<fieldset>
+												<h4>Vouchers</h4>
+												<input type="text" value="" name="discount_name" id="discount_name" class="discount_name col-md-3" placeholder="Money coupon, type here!">
+												<button class="button button-large" name="submitAddDiscount" type="submit"><span>Send it</span></button>
+											</fieldset>
+										</form>
+									</td>
+								</tr>
+							</tfoot>
+							<tbody>																																								<tr class="cart_item odd">
+									<td class="cart_product">
+										<a href="#"><img width="67" height="98" alt="Faded Short Sleeve T-shirts" src="images/products/big.jpg"></a>
+									</td>
+									<td class="cart_description">
+										<p class="product-name"><a href="#">Faded Short Sleeve T-shirts</a></p>
+								        <small class="cart_ref">SKU : demo_1</small>		
+								        <small><a href="#">Color : Orange, Size : S</a></small>	
+								    </td>
+									<td class="cart_avail"><span class="label label-success">In stock</span></td>
+									<td data-title="Unit price" class="cart_unit">
+										<ul class="price">
+										    <li class="price">16,51 zł</li>
+										</ul>
+									</td>
+									<td data-title="Amount" class="cart_quantity text-center">		
+										<input type="text" name="quantity" value="1" class="cart_quantity_input" autocomplete="off" size="2">
+										<div class="cart_quantity_button clearfix">
+											<a title="Subtract" href="#" class="cart_quantity_down" rel="nofollow">
+												<span><i class="icon icon-minus"></i></span>
+											</a>
+											<a title="Add" href="#" class="cart_quantity_up" rel="nofollow">
+												<span><i class="icon icon-plus"></i></span>
+											</a>
+										</div>
+									</td>
+									<td data-title="Total" class="cart_total">
+										<span id="total_product_price_1_1_0" class="price">16,51 zł</span>
+									</td>
+									<td class="cart_delete text-center">
+										<div>
+											<a href="#" class="cart_quantity_delete" title="Delete" rel="nofollow"><i class="icon icon-times"></i></a>
+										</div>
+									</td>
+								</tr>																																						<tr class="cart_item even">
+									<td class="cart_product">
+										<a href="#"><img width="67" height="98" alt="Printed Summer Dress" src="images/products/big.jpg"></a>
+									</td>
+									<td class="cart_description">
+										<p class="product-name"><a href="#">Printed Summer Dress</a></p>
+								        <small class="cart_ref">SKU : demo_5</small>		
+								        <small><a href="#">Color : Yellow, Size : S</a></small>	
+								    </td>
+									<td class="cart_avail"><span class="label label-success">In stock</span></td>
+									<td data-title="Unit price" class="cart_unit">
+										<ul class="price">
+										    <li class="price special-price">28,98 zł</li>
+											<li class="old-price">30,51 zł</li>
+										</ul>
+									</td>
+
+									<td data-title="Amount" class="cart_quantity text-center">
+										<input type="text" name="quantity" value="1" class="cart_quantity_input" autocomplete="off" size="2">
+										<div class="cart_quantity_button clearfix">
+											<a title="Subtract" href="#" class="cart_quantity_down" rel="nofollow">
+												<span><i class="icon icon-minus"></i></span>
+											</a>
+											<a title="Add" href="#" class="cart_quantity_up" rel="nofollow">
+												<span><i class="icon icon-plus"></i></span>
+											</a>
+										</div>
+									</td>
+									<td data-title="Total" class="cart_total">
+										<span id="total_product_price_5_19_0" class="price">28,98 zł</span>
+									</td>
+									<td class="cart_delete text-center">
+										<div>
+											<a href="#" class="cart_quantity_delete" title="Delete" rel="nofollow"><i class="icon icon-times"></i></a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div><!-- #order-detail-content -->
+
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<form action="#" method="post" id="compare_shipping_form" class="row">
+							<fieldset id="compare_shipping">
+								<h4>Calculate shipping</h4>
+								<div class="form-group">
+									<select id="id_country" name="id_country">
+										<option value="0">Country</option>
+										<option value="1">England</option>
+										<option value="2">Germany</option>
+										<option value="3">Poland</option>
+										<option value="4">USA</option>
+									</select>
+								</div>
+
+								<div class="form-group last">
+									<input type="text" value="" id="zipcode" name="zipcode" placeholder="Postcode" />
+								</div>	
+
+							</fieldset>
+						</form>
+					</div>
+					
+					<div class="summary-shopping col-md-4 col-sm-5 col-xs-12 pull-right">
+						<div class="row">
+							<div class="summary-bg">
+								<h3>Summarise</h3>
+								<table>
+									<tr>
+										<td>Cart subtotal</td>
+										<td id="total_product" class="price">45,49 zł</td>	
+									</tr>
+									<tr>
+										<td>Shipping costs</td>
+										<td class="price">Free shipping</td>	
+									</tr>
+									<tr class="cart_total_price">
+										<td class="total_price_container">
+											<span>Total</span>
+										</td>
+										<td id="total_price_container" class="price">
+											<span id="total_price">45,49 zł</span>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div><!-- .row -->
+					</div><!-- .summary-shopping -->
+
+					<div class="navigation-btn clearBoth">
+						<a href="#" class="pull-left button">Continue shopping</a>
+						<a href="#" class="pull-right button btn-primary">Checkout</a>
+					</div><!-- .navigation-btn -->
+				</div><!-- .background -->
+			</div><!--. center_column -->
+
+			
+		</div><!-- .columns -->
+	</div><!-- .container -->
+
+	<div class="prefooter">
+		<div class="container">
+			<form id="newsletterRegistrationForm" class="col-md-7 col-sm-12 col-xs-12" action="#" method="post">
+				<h5>NEWSLETTER</h5>
+				<input id="newsletter_registration_email" class="account_input" type="email" name="email" placeholder="Your e-mail address" />
+				<input class="button button-small btn-primary" type="submit" value="Save" />
+			</form>
+			<div class="col-md-5 col-sm-12 col-xs-12 social-icons">
+				<div class="row">
+
+					<div class="item dribbble">
+						<a href="#"><i class="icon icon-dribbble"></i></a>
+					</div>
+
+					<div class="item facebook">
+						<a href="#"><i class="icon icon-facebook"></i></a>
+					</div>
+
+					<div class="item twitter">
+						<a href="#"><i class="icon icon-twitter"></i></a>
+					</div>
+
+					<div class="item google-plus">
+						<a href="#"><i class="icon icon-google-plus"></i></a>
+					</div>
+
+					<div class="item behance">
+						<a href="#"><i class="icon icon-behance"></i></a>
+					</div>
+				</div><!--. row -->
+			</div><!-- .social-icons -->
+		</div><!-- .container -->
+
+		<div class="prefooter-blocks">
+			<div class="container">
+				<div class="row clearBoth">
+					<div class="block_footer col-md-3 col-sm-6 col-xs-12">
+						<h4>fast menu</h4>
+						<ul>
+							<li><a href="#">faq</a></li>
+							<li><a href="#">terms and conditions</a></li>
+							<li><a href="#">sitemap</a></li>
+							<li><a href="#">store informations</a></li>
+							<li><a href="#">contacts</a></li>
+							<li><a href="#">store informations</a></li>
+							<li><a href="#">contacts</a></li>
+						</ul>
+					</div><!-- .block_footer -->
+
+					<div class="block_footer col-md-3 col-sm-6 col-xs-12">
+						<h4>categories</h4>
+						<ul>
+							<li><a href="#">man</a></li>
+							<li><a href="#">woman</a></li>
+							<li><a href="#">pregnat</a></li>
+							<li><a href="#">kids</a></li>
+							<li><a href="#">contacts</a></li>
+							<li><a href="#">top10</a></li>
+							<li><a href="#">woman</a></li>
+						</ul>
+					</div><!-- .block_footer -->
+
+					<div class="block_footer col-md-3 col-sm-6 col-xs-12">
+						<h4>terms and conditions</h4>
+						<ul>
+							<li><a href="#">exchange</a></li>
+							<li><a href="#">important informations</a></li>
+							<li><a href="#">shipping</a></li>
+							<li><a href="#">payment</a></li>
+						</ul>
+					</div><!-- .block_footer -->
+
+					<div class="block_footer block_contact col-md-3 col-sm-6 col-xs-12" itemtype="http://schema.org/Organization" itemscope="">
+						<h4 class="dark">contact with us</h4>
+						<div class="item">
+							<i class="pull-left icon icon-map-marker"></i>
+							<p>
+								<span itemprop="name">Madrid Store</span>
+								<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+									<span itemprop="streetAddress">Street 765/5,</span>
+									<span itemprop="postalCode">55-555</span>
+									<span itemprop="addressLocality">Madrid</span>
+								</span>
+							</p>
+						</div><!-- .item -->
+
+						<div class="item even">
+							<i class="pull-left icon icon-phone"></i>
+							<p>
+								<span itemprop="telephone">+48.564342145</span>
+								<span>+48.564342146</span>
+							</p>
+						</div><!-- .item -->
+
+						<div class="item last-item mail">
+							<i class="pull-left icon icon-envelope"></i>
+							<p>
+								<a href="#" itemprop="email">madrid@madrid.store.com</a>
+							</p>
+						</div><!-- .item -->
+
+					</div><!-- .block_footer -->
+
+				</div><!--. row -->
+			</div><!-- .container -->
+		</div><!-- .prefooter-blocks -->
+	</div><!-- .prefooter -->
+
+	<footer class="bottom">
+		<div class="container">
+			<p class="pull-left">All rights reserved. <strong>MADRID TEMPLATE 2014</strong></p>
+			<a href="#" class="main-color-txt pull-right totop"><i class="icon icon-chevron-up"></i></a>
+		</div><!-- .container -->
+	</footer>
+
+	<script src="js/libraries/jquery.js"></script>
+	<script src="js/libraries/jquery-migrate.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/plugins/unslider.min.js"></script>
+	<script src="js/plugins/owl.carousel.min.js"></script>
+	<script src="js/plugins/jquery.hoverIntent.js"></script>
+	<script src="js/plugins/ph_megamenu.js"></script>
+	<script src="js/plugins/height.js"></script>
+	<script src="js/plugins/jquery.selectBox.js"></script>
+
+	<script src="js/main.js"></script>
+</body>
+</html>

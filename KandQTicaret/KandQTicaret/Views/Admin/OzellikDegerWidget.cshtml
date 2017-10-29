@@ -1,0 +1,16 @@
+﻿@using KandQTicaret.Models
+@model List<OzellikDeger>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Özellik Değer</label>
+    <div class="col-sm-10 ">
+        <select name="OzellikDegerID" id="OzellikDegerID" class="form-control">
+            <option value="0">Özellik Değer Seçiniz</option>
+            @foreach (OzellikDeger item in Model)
+            {
+                <option value="@item.Id">@item.Adi</option>
+            }
+        </select>
+    </div>
+</div>
+

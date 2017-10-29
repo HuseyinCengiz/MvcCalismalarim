@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Kullanıcılar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using Blogum.Models;
+@model MembershipUserCollection
+<!-- START RESPONSIVE TABLES -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Kullanıcılar</h3>
+            </div>
+            <div class="panel-body panel-body-table">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-actions">
+                        <thead>
+                            <tr>
+                                <th>Kullanıcı Adı</th>
+                                <th>Email</th>
+                                <th>Kayıt Tarihi</th>
+                                <th>Gizli Sorusu</th>
+                                <th>Son Giriş Tarihi</th>
+                                <th>Online</th>
+                                <th width="100">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (MembershipUser item in Model)
+                            {
+                                <tr>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.CreationDate</td>
+                                    <td>@item.PasswordQuestion</td>
+                                    <td>@item.LastLoginDate</td>
+                                    <td>@item.IsOnline</td>
+                                    <td>
+                                        @{ string roller; }
+                                        @if (Roles.GetRolesForUser(item.UserName).Count() > 0)
+                                        {
+                                            roller = "";
+                                            foreach (string rol in Roles.GetRolesForUser(item.UserName))
+                                            {
+                                                roller += rol + ",";
+
+                                            }
+                                            roller = roller.Substring(0, roller.Length - 1);
+                                        }
+                                        else
+                                        {
+                                            roller = "Rol Yok";
+                                        }
+                                        @roller
+                                    </td>
+                                    <td width="15%">
+                                        <a class="btn btn-danger btn-rounded btn-sm" id="kullanicibanlama" data-sid="@item.UserName"><span class="fa fa-times"> Engelle</span></a>
+                                    </td>
+                                </tr>
+                                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END RESPONSIVE TABLES -->

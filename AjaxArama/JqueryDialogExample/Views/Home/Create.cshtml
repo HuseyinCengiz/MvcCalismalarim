@@ -1,0 +1,34 @@
+﻿@model  JqueryDialogExample.Models.Kullanici
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Ajax.BeginForm("Create", "Home", FormMethod.Post, new AjaxOptions { OnSuccess = "success", LoadingElementId="loading"}))
+{
+    <p>İsim</p>
+    <br />
+    @Html.TextBoxFor(m => m.Adi)
+
+    <p>Soyisim</p>
+    <br />
+    @Html.TextBoxFor(m => m.Soyadi)
+    <br />
+    <input type="submit" value="Kaydet" />
+    <div id="loading" style="display:none;">Yükleniyor....</div>
+}
+<div id="mesaj"></div>
+@section scripts{
+    <script>
+        function success(sonuc) {
+            if (sonuc.IsSuccess == true) {
+                $("form")[0].reset();
+                $('#mesaj').html(sonuc.Message)
+            }
+            else {
+                $('#mesaj').html(sonuc.Message)
+            }
+        }
+    </script>
+}

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Blogum.Models.Makale>
+
+@foreach (Blogum.Models.Makale makale in Model)
+{
+    <article>
+        <!-- Blog item Start -->
+        <div class="blog-item-wrap">
+            <!-- Post Format icon Start -->
+            <div class="post-format">
+                <span><i class="fa fa-camera"></i></span>
+            </div><!-- Post Format icon End -->
+            <h2 class="blog-title">
+                <a href="/Home/MakaleDetay/@makale.Id">
+                    @makale.Baslik
+                </a>
+            </h2><!-- Entry Meta Start-->
+            <div class="entry-meta">
+                <span class="meta-part">
+                    <i class="ico-user"></i> <a href="#">
+                        @makale.aspnet_Users.UserName
+                    </a>
+                </span> <span class="meta-part">
+                    <i class="ico-calendar-alt-fill"></i> <a href="#">@String.Format("{0:d MMMM yyyy}", makale.EklenmeTarihi)</a>
+                </span> <span class="meta-part">
+                    <i class="ico-comments"></i>
+                    <a href="#">@makale.Yorums.Count()</a>
+                </span>
+                <span class="meta-part">
+                    <i class="fa fa-eye"></i> <a href="#">@makale.OkunmaSayisi</a>
+                </span>
+                <span class="meta-part">
+                    <i class="ico-heart"></i> <a href="#">@makale.BegenmeSayisi</a>
+                </span>
+                <span class="meta-part">
+                    @{
+                        string etiketler = "";
+                        if (makale.Etikets.Count > 0)
+                        {
+                            foreach (var tag in makale.Etikets)
+                            {
+                                etiketler += tag.EtiketAdi + ",";
+                            }
+                            etiketler = etiketler.Substring(0, etiketler.Length - 1);
+                        }
+                    }
+                    @if (etiketler == "")
+                    {
+                        <i class="ico-tag"></i> <a href="#">Etiket Yok</a>
+                    }
+                    else
+                    {
+                        <i class="ico-tag"></i> <a href="#">@etiketler</a>
+                    }
+                </span>
+            </div><!-- Entry Meta End-->
+            <!-- Feature inner Start -->
+            <div class="feature-inner">
+                <a data-lightbox="roadtrip" href="@makale.Resim.OrtaResimYol">
+                    <img alt="" src="@makale.Resim.OrtaResimYol">
+                </a>
+            </div><!-- Feature inner End -->
+            <!-- Post Content Start -->
+            <div class="post-content">
+                @makale.KisaAciklama
+            </div><!-- Post Content End -->
+            <div class="entry-more">
+                <div class="pull-left">
+                    <a class="btn btn-common" href="/Home/MakaleDetay/@makale.Id">
+                        Devamını Oku <i class="ico-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="share-icon pull-right">
+                    <span class="socialShare"></span>
+                </div>
+            </div>
+        </div><!-- Blog item End -->
+    </article>
+                        }
+@Html.PagedListPager(Model, page => Url.Action("Index", "Home", new { page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+
+
+

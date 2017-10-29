@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using KandQTicaret.Models
+
+@section heads{
+    <style>
+        label.error {
+            color: red;
+        }
+    </style>
+}
+<!-- Horizontal form -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">Ekle</header>
+            <div class="panel-body">
+                @using (Html.BeginForm("KategoriEkle", "Admin", FormMethod.Post, htmlAttributes: new { @class ="form-horizontal", id = "kategoriform" }))
+                {
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Üst Kategori</label>
+                        <div class="col-sm-10 ">
+                            <select name="UstKategoriID" id="UstKategoriID" class="form-control">
+                                <option value="0">Üst Kategori Seçiniz</option>
+                                @foreach (UstKategori item in ViewBag.UstKategoriler)
+                                {
+                                    <option value="@item.Id">@item.Adi</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Adı</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Adi" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Açıklama</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Aciklama" class="form-control">
+                        </div>
+                    </div>
+                    if (ViewBag.Error != null)
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <p style="color:red;">@ViewBag.Error</p>
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-4">
+                            <button type="submit" class="btn btn-default">Kaydet</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="/Scripts/jquery-validation/jquery.validate.js"></script>
+    <script src="/Scripts/CommonScript.js"></script>
+}
+<!-- /Horizontal form -->
+
+

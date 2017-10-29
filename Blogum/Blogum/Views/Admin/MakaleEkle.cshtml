@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Makale Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/MakaleEkle" method="post" enctype="multipart/form-data" id="makaleform">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Makale</strong> Ekleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Başlık</label>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class="form-control" name="Baslik" id="Baslik" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kısa Açıklama</label>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class="form-control" name="KisaAciklama" id="KisaAciklama" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Açıklama</label>
+                        <div class="col-md-6 col-xs-12">
+                            @Html.TextArea("Aciklama", htmlAttributes: new { @id = "Aciklama" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Etiketler</label>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class="tagsinput" name="Etiketler" id="Etiketler" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Resim</label>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="file" class="fileinput btn-primary" name="MakaleResim" id="MakaleResim" title="Dosya Aç" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kategori</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="KategoriID" id="KategoriID" class="form-control">
+                                <option value="0">Kategori Seçiniz</option>
+                                @foreach (Kategori item in ViewBag.Kategoriler)
+                                {
+                                    <option value="@item.Id">@item.KategoriAdi</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <input type="submit" class="btn btn-primary pull-right" value="Ekle" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.instances['Aciklama'];
+        if (editor) { editor.destroy(true); }
+        CKEDITOR.replace('Aciklama', {
+            enterMode: CKEDITOR.ENTER_BR,
+        });
+        CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+    </script>
+}

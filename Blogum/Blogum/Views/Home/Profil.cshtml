@@ -1,0 +1,48 @@
+﻿@using Blogum.Models;
+@model Profil
+<div class="entry-widget">
+    <div class="widget-profile">
+        <div class="image">
+            <img alt="" src="/Content/BlogTheme/img/blog/profil-cover.jpeg" />
+        </div>
+        <div class="portfolio">
+            <img alt="" src="@Model.aspnet_Users.aspnet_Resim.KucukResimYol">
+        </div>
+        <div class="info">
+            <h3 class="name">Hüseyin Cengiz</h3>
+            <p class="details">
+                @Html.Raw(Model.Biyografim)
+            </p>
+            <div class="social-links">
+                @if (Model.Twitter != null)
+                {
+                    <a class="twitter social-link"
+                       data-placement="top" data-toggle="tooltip" href="@Model.Twitter" title="Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                }
+                @if (Model.Facebook != null)
+                {
+                    <a class="facebook social-link" data-placement="top" data-toggle="tooltip" href="@Model.Facebook"
+                       title="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                }
+                @if (Model.Google != null)
+                {
+                    <a class="google-plus social-link"
+                       data-placement="top" data-toggle="tooltip" href="@Model.Google" title="Google+">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                }
+                @if (Model.LinkedIn != null)
+                {
+                    <a class="linkedin social-link" data-placement="top" data-toggle="tooltip" href="@Model.LinkedIn"
+                       title="LinkedIn">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

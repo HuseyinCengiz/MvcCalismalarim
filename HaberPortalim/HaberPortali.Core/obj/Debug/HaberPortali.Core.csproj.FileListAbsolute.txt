@@ -1,0 +1,12 @@
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\HaberPortali.Core.dll.config
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\HaberPortali.Core.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\HaberPortali.Core.pdb
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\EntityFramework.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\HaberPortali.Data.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\HaberPortali.Data.pdb
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\EntityFramework.xml
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\obj\Debug\HaberPortali.Core.csprojResolveAssemblyReference.cache
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\obj\Debug\HaberPortali.Core.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Core\obj\Debug\HaberPortali.Core.pdb

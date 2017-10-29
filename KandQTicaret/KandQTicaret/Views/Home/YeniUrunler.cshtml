@@ -1,0 +1,45 @@
+﻿@using KandQTicaret.Models
+@model IEnumerable<Urun>
+<div class="new_products carousel-style animated" data-fx="fadeInRight">
+    <div class="heading_block margin-bottom">
+        <h4 class="pull-left">
+            <i class="icon icon-plus-circle main-color"></i>
+            <strong>Yeni</strong> Ürünler
+        </h4>
+        <div class="arrow_container pull-right">
+            <a href="#" class="arrow-ph arrow-prev" title="Previous slide"><i class="icon icon-angle-left"></i></a>
+            <a href="#" class="arrow-ph arrow-next" title="Next slide"><i class="icon icon-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="product_list_ph owl-carousel-ph clearBoth" data-max-items="3">
+            @foreach (Urun item in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12 product" itemtype="http://schema.org/Product" itemscope="">
+                    <div class="inner">
+                        <div class="img_hover"></div>
+                        <img itemprop="image" src="@item.Resims.FirstOrDefault(x=>x.Varsayilan==true).OrtaYol" alt="" class="img-responsive" />
+                        <div class="icons">
+                            <a href="#" class="add_to_cart main-color sepeteekle" data-id="@item.Id" title="Sepete Ekle"><i class="icon icon-shopping-cart"></i></a>
+                        </div>
+                        <div class="info">
+                            <h3 itemprop="name"><a itemprop="url" href="/Home/UrunDetay/@item.Id" title="see produt">@item.Adi</a></h3>
+                            <div class="price" itemtype="http://schema.org/Offer" itemscope="" itemprop="offers">
+                                @if (item.IndirimliMi)
+                                {
+                                    decimal indirimliFiyat = (item.Fiyat - ((item.Fiyat * item.IndirimOrani.Value) / 100));
+                                    <span class="price new-price" itemprop="price">@indirimliFiyat.ToString("C2")</span>
+                                                        <span class="old-price">@item.Fiyat.ToString("C2")</span>
+                                }
+                                else
+                                {
+                                    <span class="price new-price" itemprop="price">@item.Fiyat.ToString("C2")</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!-- .product_list_ph -->
+    </div><!-- .row -->
+</div><!-- new-products -->

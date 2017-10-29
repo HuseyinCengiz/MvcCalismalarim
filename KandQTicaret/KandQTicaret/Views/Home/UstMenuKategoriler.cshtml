@@ -1,0 +1,20 @@
+﻿@using KandQTicaret.Models
+@model IEnumerable<UstKategori>
+<li class="has-submenu">
+    <a title="Categories" href="#"> <span class="">Kategoriler</span></a>
+    <ul class="ph-dropdown-categories dropdown">
+
+        @foreach (UstKategori item in Model)
+            {
+            <li>
+                <a href="">@item.Adi</a>
+                <ul class="dropdown">
+                    @foreach (Kategori kategori in item.Kategoris)
+                    {
+                        <li><a href="#">@kategori.Adi</a></li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</li>

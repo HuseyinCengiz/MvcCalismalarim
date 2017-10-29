@@ -1,0 +1,8 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\bin\Debug\RepoPattern.WinForm.exe.config
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\bin\Debug\RepoPattern.WinForm.exe
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\bin\Debug\RepoPattern.WinForm.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\obj\Debug\RepoPattern.WinForm.Form1.resources
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\obj\Debug\RepoPattern.WinForm.Properties.Resources.resources
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\obj\Debug\RepoPattern.WinForm.csproj.GenerateResource.Cache
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\obj\Debug\RepoPattern.WinForm.exe
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.WinForm\obj\Debug\RepoPattern.WinForm.pdb

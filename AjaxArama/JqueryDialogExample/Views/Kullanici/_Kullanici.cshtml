@@ -1,0 +1,26 @@
+﻿@using JqueryDialogExample.Models
+@model KullaniciList
+@using PagedList;
+@using PagedList.Mvc;
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Kullanicis)
+            {
+            <tr>
+                <td>@item.Adi</td>
+                <td>@item.Soyadi</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager(Model.Kullanicis,page=>Url.Action("Index",new RouteValueDictionary { {"Page",page }, {"Ad",Model.Ad }, {"Soyad",Model.Soyad}}),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions {  UpdateTargetId= "ajax_main" }))
+

@@ -1,0 +1,394 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]>
+<html lang="en" class="no-js">
+<![endif]-->
+<html lang="en">
+<head>
+    <title>Hüseyin Cengiz Blog</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Page Description and Author -->
+    <meta content="Hüseyin Cengiz Blog" name="description">
+    <meta content="Hüseyin Cengiz" name="author"><!-- Asp.net MVC C# -->
+    <link href="/Content/BlogTheme/css/bootstrap.min.css" madia="screen" rel="stylesheet" type="text/css"><!-- Font Icon Css -->
+    <link href="~/Content/BlogTheme/css/sweetalert.css" rel="stylesheet" />
+    <link href="/Content/BlogTheme/fonts/font-awesome.min.css" madia="screen" rel="stylesheet"
+          type="text/css">
+    <link href="/Content/BlogTheme/fonts/intimate-fonts.css" madia="screen" rel="stylesheet" type="text/css"><!-- Main Css Styles -->
+    <link href="/Content/BlogTheme/css/main.css" madia="screen" rel="stylesheet" type="text/css">
+    <!-- Owl Carousel -->
+    <link href="/Content/BlogTheme/extras/owl/owl.carousel.css" media="screen" rel="stylesheet"
+          type="text/css">
+    <link href="/Content/BlogTheme/extras/owl/owl.theme.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/Content/BlogTheme/extras/animate.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/Content/BlogTheme/extras/lightbox.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/Content/BlogTheme/extras/slicknav.css" media="screen" rel="stylesheet" type="text/css"><!-- Responsive Css Styles -->
+    <link href="~/Content/BlogTheme/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Content/BlogTheme/css/responsive.css" madia="screen" rel="stylesheet" type="text/css">
+    @RenderSection("heads", false)
+</head>
+<body>
+    <!-- Header Section Start -->
+    <header class="site-header">
+        <nav class="navbar navbar-default navbar-intimate role="
+             data-offset-top="50" data-spy="affix">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Start Toggle Nav For Mobile -->
+                    <button class="navbar-toggle" data-target="#navigation"
+                            data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a class="navbar-brand" href="/Home/Index">
+                            <i class="ico-3dglasses"></i>
+                        </a>
+                    </div>
+                </div><!-- Stat Search -->
+                <div class="side">
+                    <a class="show-search"><i class="ico-search"></i></a>
+                </div><!-- Form for navbar search area -->
+                <div class="full-search">
+                    <div class="container">
+                        <div class="row">
+                            <input class="form-control" placeholder="Ara"
+                                   type="text" id="search"> <a class="close-search">
+                                <span class="ico-times"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- Search form ends -->
+                <!-- Navigation Start -->
+                <div class="navbar-collapse collapse" id="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="/Home/Index">Anasayfa</a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            string[] rols = Roles.GetRolesForUser(User.Identity.Name);
+                            foreach (var item in rols)
+                            {
+                                if (item == "Admin")
+                                {
+                                    <li>
+                                        <a href="/Admin/Index">Admin Paneli</a>
+                                    </li>
+                                }
+                            }
+                        }
+                        <li>
+                            <a href="/Home/Iletisim">İletişim</a>
+                        </li>
+                    </ul>
+                </div><!-- Navigation End -->
+            </div>
+        </nav><!-- Mobile Menu Start -->
+        <ul class="wpb-mobile-menu">
+            <li class="active">
+                <a href="/Home/Index">Anasayfa</a>
+            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                string[] rols = Roles.GetRolesForUser(User.Identity.Name);
+                foreach (var item in rols)
+                {
+                    if (item == "Admin")
+                    {
+                        <li>
+                            <a href="/Admin/Index">Admin Paneli</a>
+                        </li>
+                    }
+                }
+            }
+            <li>
+                <a href="/Home/Iletisim">İletişim</a>
+            </li>
+        </ul><!-- Mobile Menu End -->
+    </header><!-- Header Section End -->
+    <!-- Hero Area Start -->
+    @if (ViewBag.SayfaBilgi == "MakaleDetay")
+    {
+        <section class="text-center" id="hero-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="intro-area">
+                            <h2 class="page-title">
+                                @ViewBag.MakaleBilgi.Baslik
+                            </h2>
+                            <div class="entry-meta">
+                                <span class="meta-part">
+                                    <i class="ico-user"></i>
+                                    <a href="#">@ViewBag.MakaleBilgi.aspnet_Users.UserName</a>
+                                </span> <span class="meta-part">
+                                    <i class="ico-calendar-alt-fill"></i>
+                                    <a href="#">@String.Format("{0:d MMMM yyyy}", ViewBag.MakaleBilgi.EklenmeTarihi)</a>
+                                </span>
+                                <span class="meta-part">
+                                    <i class="fa fa-eye"></i> <a href="#">@ViewBag.MakaleBilgi.OkunmaSayisi</a>
+                                </span>
+                                <span class="meta-part">
+                                    @{
+                                        string etiketler = "";
+                                        if (ViewBag.MakaleBilgi.Etikets.Count > 0)
+                                        {
+                                            foreach (var tag in ViewBag.MakaleBilgi.Etikets)
+                                            {
+                                                etiketler += tag.EtiketAdi + ",";
+                                            }
+                                            etiketler = etiketler.Substring(0, etiketler.Length - 1);
+                                        }
+                                    }
+                                    @if (etiketler == "")
+                                    {
+                                        <i class="ico-tag"></i> <a href="#">Etiket Yok</a>
+                                    }
+                                    else
+                                    {
+                                        <i class="ico-tag"></i> <a href="#">@etiketler</a>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                                        }
+                                        else
+                                        {
+                                            <section class="text-center" id="hero-area">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="intro-area">
+                                                                <h3 class="page-title">Hüseyin Cengiz'in Bloğuna</h3>
+                                                                <h3>Hoş Geldiniz</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        }
+    <!-- Hero Area End -->
+    <!-- Content Start -->
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    @RenderBody()
+                </div>
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        @{
+                            Html.RenderAction("Profil", "Home");
+                            Html.RenderAction("SonMakaleler", "Home");
+                            Html.RenderAction("Kategoriler", "Home");
+                        }
+                        <!-- <div class="entry-widget">
+                             <h5 class="widget-title">Latest Tweets</h5>
+                             <div class="latest-tweets">
+                                 <ul class="posts-list">
+                                     <li>
+                                         <div class="icon">
+                                             <a href="/Content/BlogTheme/#">
+                                                 <i class="ico-twitter-with-circle"></i>
+                                             </a>
+                                         </div>
+                                         <div class="tweets-content">
+                                             <a href="/Content/BlogTheme/#">
+                                                 IntimateBlog
+                                                 <span>intimateblog</span>
+                                             </a>
+                                             <p class="details">
+                                                 <span>Noah</span> We built with
+                                                 the most amusing digital ecommerce
+                                                 widget WooCommerce most amusing
+                                                 digital.
+                                             </p>
+                                             <p class="ago">18 Days Ago</p>
+                                         </div>
+                                     </li>
+                                     <li>
+                                         <div class="icon">
+                                             <a href="/Content/BlogTheme/#">
+                                                 <i class="ico-twitter-with-circle"></i>
+                                             </a>
+                                         </div>
+                                         <div class="tweets-content">
+                                             <a href="/Content/BlogTheme/#">
+                                                 IntimateBlog
+                                                 <span>intimateblog</span>
+                                             </a>
+                                             <p class="details">
+                                                 <span>Noah</span> We built with
+                                                 the most amusing digital ecommerce
+                                                 widget WooCommerce most amusing
+                                                 digital.
+                                             </p>
+                                             <p class="ago">18 Days Ago</p>
+                                         </div>
+                                     </li>
+                                     <li>
+                                         <div class="icon">
+                                             <a href="/Content/BlogTheme/#">
+                                                 <i class="ico-twitter-with-circle"></i>
+                                             </a>
+                                         </div>
+                                         <div class="tweets-content">
+                                             <a href="/Content/BlogTheme/#">
+                                                 IntimateBlog
+                                                 <span>intimateblog</span>
+                                             </a>
+                                             <p class="details">
+                                                 <span>Noah</span> We built with
+                                                 the most amusing digital ecommerce
+                                                 widget WooCommerce most amusing
+                                                 digital.
+                                             </p>
+                                             <p class="ago">18 Days Ago</p>
+                                         </div>
+                                     </li>
+                                     <li>
+                                         <div class="icon">
+                                             <a href="/Content/BlogTheme/#">
+                                                 <i class="ico-twitter-with-circle"></i>
+                                             </a>
+                                         </div>
+                                         <div class="tweets-content">
+                                             <a href="/Content/BlogTheme/#">
+                                                 IntimateBlog
+                                                 <span>intimateblog</span>
+                                             </a>
+                                             <p class="details">
+                                                 <span>Noah</span> We built with
+                                                 the most amusing digital ecommerce
+                                                 widget WooCommerce most amusing
+                                                 digital.
+                                             </p>
+                                             <p class="ago">18 Days Ago</p>
+                                         </div>
+                                     </li>
+                                 </ul>
+                                 <div class="follow">
+                                     <h4>
+                                         Follow Us <a href="#">intimateblog</a>
+                                     </h4>
+                                 </div>
+                             </div>
+                         </div>-->
+                        @{
+                            Html.RenderAction("Etiketler", "Home");
+                        }
+                        <div class="entry-widget">
+                            <h5 class="widget-title">Meta</h5>
+                            <ul class="meta-list">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <a href="/Kullanici/GirisYap">
+                                            <i class="ico-keyboard_arrow_right"></i> Giriş Yap
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="/Kullanici/CikisYap">
+                                            <i class="ico-keyboard_arrow_right"></i> Çıkış Yap
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Content End -->
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-inner text-center">
+                        <div class="social-links">
+                            <a class="twitter social-link" data-placement="top" data-toggle="tooltip" href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a class="facebook social-link" data-placement="top" data-toggle="tooltip" href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a class="google-plus social-link" data-placement="top" data-toggle="tooltip" href="#" title="Google+"><i class="fa fa-google-plus"></i></a>
+                            <a class="linkedin social-link" data-placement="top" data-toggle="tooltip" href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="/Home/Index">Anasayfa</a>
+                            </li>
+                            <li>
+                                <a href="/Home/Iletisim">İletişim</a>
+                            </li>
+                        </ul>
+                        <div class="copyright">
+                            <p>
+                                Telif Hakkı © @DateTime.Now.Year Hüseyin Cengiz Blog.
+                                <a href="/Content/BlogTheme/http://graygrids.com/">Hüseyin Cengiz</a>
+                                Tarafından Geliştirildi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- Footer End -->
+    <!-- js  -->
+    <script src="/Content/BlogTheme/js/jquery-min.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.unobtrusive-ajax.min.js">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.validate.unobtrusive.min.js">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.validate.min.js">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery-ui.min.js">
+    </script>
+    <script src="/Content/BlogTheme/js/bootstrap.min.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/owl.carousel.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.mixitup.min.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/lightbox.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/plugin.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.slicknav.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/count-to.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/jquery.appear.js" type="text/javascript">
+    </script>
+    <script src="/Content/BlogTheme/js/main.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#search").autocomplete({
+                autoFocus: true,
+                source: "/Home/Search",
+                select: function (event, veri) {
+                    window.location = veri.item.url;
+                }
+            })
+        });
+    </script>
+    @RenderSection("scripts", false)
+    <script src="/Content/Global.js"></script>
+</body>
+</html>

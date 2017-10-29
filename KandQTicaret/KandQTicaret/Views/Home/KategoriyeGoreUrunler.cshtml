@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Kategoriye Göre Ürünler";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@section heads{
+    <link href="/Layout/KandQ/css/jquery-ui.css" rel="stylesheet" />
+    <link href="/Layout/KandQ/css/category.css" rel="stylesheet" />
+}
+@using KandQTicaret.Models
+@using PagedList
+
+@model IPagedList<Urun>
+
+<div class="columns row">
+    <div class="col-xs-12">
+        <div class="breadcrumb">
+            <a class="home" title="Return to Home" href="#">Anasayfa</a>
+            <span class="navigation-pipe">&raquo;</span>
+            <span class="navigation_page">
+                <span itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <a title="" href="#" itemprop="item">
+                        <span itemprop="name">@ViewBag.Title</span>
+                    </a>
+                </span>
+                <span class="navigation-pipe">&raquo;</span>
+                @ViewBag.KatAdi
+            </span>
+        </div><!-- .breadcrumb -->
+    </div>
+    <div class="center_column col-md-9 col-sm-8 col-xs-12 col-md-push-3 col-sm-push-4">
+        <div class="background">
+            <div class="content_sortPagiBar clearBoth">
+                <div class="sortPagiBar">
+                    <div class="col-md-2 col-sm-3 col-xs-12 list-style-buttons">
+                        <div class="row">
+                            <a id="gridview" class="switcher active" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Grid">
+                                <i class="icon icon-th"></i>
+                            </a>
+                            <a id="listview" class="switcher" title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="List">
+                                <i class="icon icon-th-list"></i>
+                            </a>
+                        </div>
+                    </div><!-- .list-style-buttons -->
+                    <div class="col-md-offset-2 col-md-4 col-sm-7 col-xs-12 productsSortForm">
+                        <label for="selectProductSort">Sırala</label>
+                        <select class="selectProductSort" id="selectProductSort" name="SiralamaSekli" data-katid="@ViewBag.KatId">
+                            <option selected="selected" value="position:asc">Seçiniz...</option>
+                            <option value="price:asc">Fiyat: Azalan-Artan</option>
+                            <option value="price:desc">Fiyat: Artan-Azalan</option>
+                            <option value="name:asc">Ürün Adı: A'dan Z'ye</option>
+                            <option value="name:desc">Ürün Adı: Z'den A'ya</option>
+                        </select>
+                    </div>
+                </div><!-- .sortPagiBar -->
+            </div><!-- .content_sortPagiBar -->
+            <div id="ajax_urun">
+                @Html.Partial("KategoriyeGoreUrunlerWidget", Model)
+            </div>
+        </div><!-- .background -->
+    </div><!--. center_column -->
+
+    <aside class="sidebar col-md-3 col-sm-4 col-xs-12 col-md-pull-9 col-sm-pull-8">
+        <div id="layered_block_left" class="block">
+            <div class="heading_block">
+                <h4>
+                    <i class="icon icon-book"></i>
+                    Katalog
+                </h4>
+            </div><!-- .heading_block -->
+
+            <div class="block_content">
+                <form id="layered_form" action="#">
+                    <div>
+                        <div id="enabled_filters">
+                            <span class="layered_subtitle">
+                                Aktif Filtreler
+                            </span>
+                            <ul>
+                                <li id="beden" style="display:none;"></li>
+                                <li id="renk" style="display:none;"></li>
+                            </ul>
+                        </div><!-- #enabled_filters -->
+                        @foreach (OzellikTip item in ViewBag.Ozellikler)
+                        {
+                            if (item.Adi == "Renk")
+                            {
+                                <div class="layered_filter">
+                                    <div class="layered_subtitle_heading">
+                                        <span class="layered_subtitle">@item.Adi</span>
+                                    </div>
+                                    <ul class="layered_filter_ul">
+                                        @foreach (OzellikDeger deger in item.OzellikDegers)
+                                        {
+                                            <li class="nomargin hiddable col-lg-12">
+                                                <input type="button" value="@deger.Adi" style="background: @deger.Adi;" class="color-option on" />
+                                                <label class="layered_color @item.Adi" for="layered_id_attribute_group_11">
+                                                    <a href="#">@deger.Adi</a>
+                                                </label>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div><!-- .layered_filter -->
+                            }
+                            else
+                            {
+                                if (item.Adi == "Beden")
+                                {
+                                    <div class="layered_filter">
+                                        <div class="layered_subtitle_heading">
+                                            <span class="layered_subtitle">@item.Adi</span>
+                                        </div>
+                                        <ul class="layered_filter_ul">
+                                            @foreach (OzellikDeger deger in item.OzellikDegers)
+                                            {
+                                                <li class="nomargin hiddable col-lg-12">
+
+                                                    <label for="layered_id_attribute_group_1" class="@item.Adi">
+                                                        <a href="#">@deger.Adi</a>
+                                                    </label>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div><!-- .layered_filter -->
+                                }
+                            }
+                        }
+                        <div class="layered_price">
+                            <div class="layered_subtitle_heading">
+                                <span class="layered_subtitle">Fiyata Göre Filtrele</span>
+                            </div>
+                            <div id="slider-range"></div>
+                            <label for="layered_price_range">Fiyat:</label>
+                            <input type="text" id="layered_price_range" readonly />
+                        </div><!-- .layered-price -->
+                        <input type="button" value="Filtrele" style="width:100%;" class="button btn-primary filtrele" />
+                    </div>
+                </form>
+            </div><!-- .block_content -->
+        </div><!-- .block -->
+
+    </aside><!-- .sidebar -->
+</div><!-- .columns -->
+
+@section scripts{
+    <script src="/Layout/KandQ/js/libraries/jquery-ui.min.js"></script>
+    <script src="/Layout/KandQ/js/plugins/jquery.cookie.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

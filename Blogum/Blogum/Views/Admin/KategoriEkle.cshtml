@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/KategoriEkle" method="post" id="kategoriform">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Kategori</strong> Ekleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Üst Kategori</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="UstKategoriID" id="UstKategoriID" class="form-control">
+                                <option value="0">Üst Kategori Seçiniz</option>
+                                @foreach (UstKategori item in ViewBag.UstKategoriler)
+                                {
+                                    <option value="@item.Id">@item.UstKategoriAdi</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kategori Adı</label>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class="form-control" name="KategoriAdi" id="KategoriAdi" />
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <button class="btn btn-primary pull-right">Ekle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

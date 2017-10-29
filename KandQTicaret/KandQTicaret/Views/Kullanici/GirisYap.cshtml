@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Giriş Yap";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+<div class="columns row">
+    <div class="col-xs-12">
+        <div class="breadcrumb">
+            <a class="home" title="Return to Home" href="#">Anasayfa</a>
+            <span class="navigation-pipe">&raquo;</span>
+            <span class="navigation_page">
+                <span itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <a title="Form" href="#" itemprop="item">
+                        <span itemprop="name">@ViewBag.Title</span>
+                    </a>
+                </span>
+                <span class="navigation-pipe">&raquo;</span>
+                Giriş Formu
+            </span>
+        </div><!-- .breadcrumb -->
+    </div>
+    <div class="center_column col-md-9 col-sm-8 col-xs-12 col-md-push-3 col-sm-push-4">
+        <div class="background">
+            <form class="std box" id="account-creation_form" method="post" action="/Kullanici/GirisYap"> 
+                <div class="account_creation">
+                    <fieldset>
+                        <h3 class="page-subheading"><span>Giriş Formu</span></h3>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Kullanıcı Adı" name="KullaniciAdi" id="KullaniciAdi" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" placeholder="Şifre" name="Sifre" id="Sifre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                              @Html.CheckBox("Hatirla", true) Beni Hatırla
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="submit clearfix">
+                    <button class="btn btn-default button button-medium" id="kayitol" type="submit">
+                        <span>Giriş Yap</span>
+                    </button>
+                </div>
+            </form>
+        </div><!-- .background -->
+    </div><!--. center_column -->
+    @{Html.RenderAction("Kategoriler", "Home");}
+</div><!-- .columns -->

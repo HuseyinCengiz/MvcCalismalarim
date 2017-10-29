@@ -1,0 +1,179 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KandQ Yönetim Paneli</title>
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,400italic%7cMontserrat:400,700" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+    <link href="/Layout/Admin/css/typicons.min.css" rel="stylesheet">
+    <link href="/Layout/Admin/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- iCheck - Custom radio/check input -->
+    <link href="/Layout/Admin/css/icheck/minimal.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="/Layout/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- All plugins -->
+    <link href="/Layout/Admin/css/plugins.min.css" rel="stylesheet">
+    <!-- Template -->
+    <link href="/Layout/Admin/css/main.min.css" rel="stylesheet">
+    @RenderSection("heads", false)
+    <!--[if lt IE 9]>
+      <script src="/Layout/Admin/js/plugins/shiv.min.js"></script>
+      <script src="/Layout/Admin/js/plugins/respond.min.js"></script>
+      <script src="/Layout/Admin/js/plugins/excanvas.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <!-- Sidebar header -->
+            <header class="sidebar-header">
+                <h1><img src="/Layout/Admin/img/logo.png" alt="KandQ"></h1>
+                <a href="/Layout/Admin/#" id="make-compact"><span class="typcn typcn-th-menu"></span></a>
+                <a href="/Layout/Admin/#" id="hide-menu"><span class="fa fa-caret-square-o-left"></span></a>
+            </header>
+            <!-- /Sidebar header -->
+            <!-- Sidebar group -->
+            <ul class="sidebar-group">
+                <li class="sidebar-group-header">Yönlendirme</li>
+                <li>
+                    <a href="/Admin/Index"><i class="typcn typcn-home"></i> <span>Index</span></a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Üst Kategori</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="/Admin/UstKategoriler/">Liste</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Kategori</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="/Admin/Kategoriler/">Liste</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Marka</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="/Admin/Markalar/">Liste</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Özellik Tip</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="/Admin/OzellikTipleri/">Liste</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="typcn typcn-tabs-outline"></i> <span>Özellik Deger</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="/Admin/OzellikDegerleri/">Liste</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+            </ul>
+            <!-- /Sidebar group -->
+        </aside>
+        <!-- /Sidebar -->
+        <!-- Content -->
+        <div id="content">
+            <!-- Header -->
+            <nav class="header-site">
+                <div class="container-fluid">
+                    <!-- Page title and breadcrumb navigation -->
+                    <div class="page-title">
+                        <h4><a href="#" id="toggle-menu"><i class="typcn typcn-th-menu"></i></a> <span>@ViewBag.Title</span></h4>
+                        <nav>
+                            <a href="#">Admin</a>
+                            <span class="typcn typcn-chevron-right"></span>
+                            <a href="#">@ViewBag.Title</a>
+                        </nav>
+                    </div>
+                    <!-- /Page title and breadcrumb navigation -->
+                    <!-- Header navigation / icons -->
+                    <ul class="header-nav navbar-right">
+                        <!-- Profile -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/Layout/Admin/placeholders/avatar.jpg" alt="User avatar"></a>
+                            <ul class="dropdown-menu dropdown-arrow pull-right">
+                                <li><a href="#"><span class="typcn typcn-edit"></span> Profili Düzenle</a></li>
+                                <li><a href="#"><span class="typcn typcn-cog"></span> Ayarlar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><span class="typcn typcn-power"></span> Çıkış</a></li>
+                            </ul>
+                        </li>
+                        <!-- /Profile -->
+                    </ul>
+                    <!-- /Header navigation / icons -->
+                </div>
+            </nav>
+            <!-- /Header -->
+            <!-- Content start -->
+            <div class="container-fluid">
+                <!--panels -->
+                @RenderBody()
+                <!-- /panels -->
+            </div>
+        </div>
+        <!-- /Content -->
+    </div>
+    <!-- /Page container -->
+    <!-- PLUGINS -->
+    <script src="/Layout/Admin/js/plugins/jquery.min.js"></script>
+    <script src="/Layout/Admin/js/plugins/modernizr.min.js"></script>
+    <!-- Bootstrap core -->
+    <script src="/Layout/Admin/js/plugins/bootstrap.min.js"></script>
+    <!-- Custom scrollbar -->
+    <script src="/Layout/Admin/js/plugins/enscroll.min.js"></script>
+    <!-- Knob / Donut charts -->
+    <script src="/Layout/Admin/js/plugins/knob.min.js"></script>
+    <!-- Dynamic tables -->
+    <script src="/Layout/Admin/js/plugins/footable.min.js"></script>
+    <!-- WYSIWYG -->
+    <script src="/Layout/Admin/js/plugins/summernote.min.js"></script>
+    <!-- Responsive multimenu -->
+    <script src="/Layout/Admin/js/plugins/multimenu.min.js"></script>
+    <!-- Custom checkboxes and radio input -->
+    <script src="/Layout/Admin/js/plugins/icheck.min.js"></script>
+    <!-- Rickshaw graphs & charts -->
+    <script src="/Layout/Admin/js/plugins/sparkline.min.js"></script>
+    <script src="/Layout/Admin/js/plugins/rickshaw/d3.v3.js"></script>
+    <script src="/Layout/Admin/js/plugins/rickshaw/rickshaw.min.js"></script>
+    <!-- Flot -->
+    <script src="/Layout/Admin/js/plugins/flot.min.js"></script>
+    <!-- Calendar -->
+    <script src="/Layout/Admin/js/plugins/calendar/underscore.min.js"></script>
+    <script src="/Layout/Admin/js/plugins/calendar/calendar.min.js"></script>
+    <!-- Masked input -->
+    <script src="/Layout/Admin/js/plugins/maskedinput.min.js"></script>
+    <!-- Date and time picker -->
+    <script src="/Layout/Admin/js/plugins/datepicker/moment.min.js"></script>
+    <script src="/Layout/Admin/js/plugins/datepicker/datetimepicker.min.js"></script>
+    <!-- Site -->
+    <script src="/Layout/Admin/js/main.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

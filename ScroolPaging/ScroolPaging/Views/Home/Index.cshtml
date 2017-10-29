@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ScroolPaging.Models.Kullanici>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Müşteriler</h2>
+<div id="ajax_main">
+    @Html.Partial("_Kullanicilar", Model)
+</div>
+<div id="load" style="display:none;">
+    Yükleniyor....
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var pageNo = 1;
+        var verikaldimi = true;
+        $(window).scroll(function () {
+            var scrooltop = Math.round($(window).scrollTop()) + 1;
+            var sayfayukseklik = $(document).height();
+            var pencereyukseklik = $(window).height();
+            if (scrooltop == (sayfayukseklik - pencereyukseklik)) {
+                if (verikaldimi) {
+                    $('#load').show();
+                    $.ajax({
+                        url: "/Home/Index",
+                        data: { page: pageNo },
+                        success: function (data) {
+                            if ($.trim(data) != "") {
+                                $('#load').hide();
+                                $("#ajax_main").append(data);
+                                pageNo++;
+                            }
+                            else {
+                                verikaldimi = false;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}

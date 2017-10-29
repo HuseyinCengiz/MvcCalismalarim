@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Üst Kategori Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models;
+@model UstKategori
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/UstKategoriDuzenle/" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Üst Kategori</strong> Düzenleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Üst Kategori Adı</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="hidden" name="Id" value="@Model.Id" />
+                                <input type="text" class="form-control" value="@Model.UstKategoriAdi" name="UstKategoriAdi" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary pull-right">Düzenle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

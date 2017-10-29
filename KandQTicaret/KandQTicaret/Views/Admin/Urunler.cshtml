@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Ürunler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using KandQTicaret.Models
+@model IEnumerable<Urun>
+
+@section heads{
+    <link href="/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+}
+<div class="row">
+    <!-- Responsive table -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">
+                <div class="pull-right"><a href="/Admin/UrunEkle" class="btn btn-success btn-sm">+ Yeni Ekle</a></div>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Ad</th>
+                                <th>Açıklama</th>
+                                <th>Fiyat</th>
+                                <th>Stok</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>İndirim</th>
+                                <th>Resim</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Urun item in Model)
+                            {
+                                <tr>
+                                    <td><span class="label label-success">@item.Id</span></td>
+                                    <td>@item.Adi</td>
+                                    <td>@item.Aciklama</td>
+                                    <td>@item.Fiyat.ToString("C2")</td>
+                                    <td>@item.Stok</td>
+                                    <td>@item.EklenmeTarihi</td>
+                                    @if (item.IndirimliMi == true)
+                                    {
+                                        <td><span class="label label-success">İndirimde</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-default">İndirim Yok</span></td>
+                                    }
+                                    <td>
+                                        @if (item.Resims.Count > 0 && item.Resims != null)
+                                        {
+                                            <img src="@item.Resims.FirstOrDefault(x=>x.Varsayilan==true).KucukYol" alt="@item.Adi" />
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("UrunResimEkle","Admin",routeValues:new { id = item.Id })" class="btn btn-default btn-sm">Resim Ekle</a>
+                                        <a href="@Url.Action("UrunDuzenle","Admin",routeValues:new { id = item.Id })" class="btn btn-default btn-sm">Düzenle</a>
+                                        <button class="btn btn-default btn-sm urunsil" data-id="@item.Id">Sil</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Responsive table -->
+</div>
+@section scripts{
+    <script src="/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script src="/Scripts/CommonScript.js"></script>
+}
+

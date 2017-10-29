@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewBag.Title = "MakaleDetay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+@model Blogum.Models.Makale
+
+<article class="single-post-content">
+    <!-- Blog item Start -->
+    <div class="blog-item-wrap">
+        <a href="#">
+            <img width="617" height="243" alt="" src="@Model.Resim.BuyukResimYol">
+        </a>
+    </div><!-- Blog item End --><br>
+    @Html.Raw(Model.Aciklama)
+    <!-- Feature inner Start -->
+    <div class="links">
+        <a class="heart" id="begen" data-id="@Model.Id">
+            <i class="fa fa-heart-o"></i>
+            <span id="begenmesayisi">(@Model.BegenmeSayisi)</span>
+        </a> <a class="twitter" href="#">
+            <i class="ico-twitter-with-circle"></i> Tweet
+        </a> <a class="facebook" href="#">
+            <i class="ico-facebook-with-circle"></i> Paylaş
+        </a>
+    </div>
+</article>
+@section scripts{
+    <script src="/Content/BlogTheme/js/sweetalert.min.js"></script>
+    <script>
+        var begenme = true;
+        $(document).ready(function () {
+            $(document).on("click", "#begen", function () {
+                var makaleid = $(this).attr("data-id");
+                if (begenme) {
+                    $.ajax({
+                        url: "/Home/Begenme",
+                        type: "Post",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({ id: makaleid, begendimi: begenme }),
+                        success: function (veri) {
+                            $("#begen").html(veri);
+                            begenme = false;
+                        }
+                    });
+                }
+                if (begenme == false) {
+                    $.ajax({
+                        url: "/Home/Begenme",
+                        type: "Post",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({ id: makaleid, begendimi: begenme }),
+                        success: function (veri) {
+                            $("#begen").html(veri);
+                            begenme = true;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#yorumform").validate({
+                rules: {
+                    "AdSoyad": {
+                        required: true
+                    },
+                    "Icerik": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "AdSoyad": {
+                        required: "Lütfen Adınızı Soyadınızı Boş Bırakmayınız!"
+                    },
+                    "Icerik": {
+                        required: "Lütfen Yorumunuzu Boş Bırakmayınız!"
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        function yorumbasarili() {
+            swal("Yorumunuz Gönderildi");
+            window.location.reload();
+        }
+    </script>
+}
+@using (Ajax.BeginForm("YorumEkle", "Home", FormMethod.Post, new AjaxOptions { OnSuccess="yorumbasarili",  }, htmlAttributes: new { id = "yorumform" }))
+{
+    <article>
+        <div id="respond">
+            <h2 class="respond-title">Yorum Ekle</h2>
+            <div class="row">
+                <input type="hidden" name="MakaleID" id="MakaleID" value="@Model.Id" />
+                <input type="hidden" name="YazanKisi" id="YazanKisi" value="@User.Identity.Name" />
+                <div class="col-md-6">
+                    <input class="form-control" name="AdSoyad" id="AdSoyad" placeholder="Ad Soyad" size="30" type="text">
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" name="Email" id="Email" placeholder="Email" size="30" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea class="form-control" cols="45" name="Icerik" id="Icerik" placeholder="Yorum" rows="8"></textarea>
+                </div>
+                <div class="col-md-12">
+                    <input class="btn btn-common btn-more" type="submit" value="Yorum Gönder" />
+                </div>
+            </div>
+        </div>
+    </article>
+}
+
+
+<div class="post-quote text-center">
+    <blockquote>
+        <div class="icon">
+            <i class="ico-comments"></i>
+        </div>
+        @if (Model.Yorums.Count() > 0)
+        {
+            <p>@Model.Yorums.Count() Adet Yorum Var.</p>
+        }
+        else
+        {
+            <p>Hiç Yorum Yapılmamış.</p>
+        }
+    </blockquote>
+</div>
+<article>
+    <div id="comments">
+        <ol class="comments-list">
+            @foreach (var yorum in Model.Yorums)
+            {
+                <li>
+                    <div class="comment-box clearfix">
+                        <div class="avatar">
+                            <a href="#">
+                                @if (yorum.YazanID == null)
+                                {
+                                    <img alt="" src="~/Content/KullaniciProfilResim/ziyaretci.png">
+                                }
+                                else
+                                {
+                                    <img alt="" src="@yorum.aspnet_Users.aspnet_Resim.KucukResimYol">
+                                }
+
+                            </a>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-meta">
+                                <h4 class="comment-by">
+                                    <a href="#">
+                                        @if (yorum.YazanID == null)
+                                        {
+                                            @yorum.AdSoyad
+                                        }
+                                        else
+                                        {
+                                            @yorum.aspnet_Users.UserName
+                                        }
+                                    </a>
+                                </h4>
+                            </div>
+                            <p>
+                                @yorum.Icerik
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+</article>
+
+<article>
+    <div class="relate-post">
+        <h4>İlişkili Makaleler</h4>
+        <div class="row">
+            @if (ViewBag.iliskilimakaleler != null)
+            {
+                foreach (Blogum.Models.Makale item in ViewBag.iliskilimakaleler)
+                {
+                    <div class="col-sm-6">
+                        <ul class="posts-list">
+                            <li>
+                                <div class="widget-thumb">
+                                    <a href="/Home/MakaleDetay/@item.Id">
+                                        <img alt="@item.Baslik" src="@item.Resim.KucukResimYol">
+                                    </a>
+                                </div>
+                                <div class="widget-content">
+                                    <a href="/Home/MakaleDetay/@item.Id">
+                                        @item.Baslik
+                                    </a>
+                                    <div class="meta">
+                                        <span>
+                                            <i class="ico-calendar-alt-fill"></i>
+                                            @String.Format("{0:d MMMM yyyy}", item.EklenmeTarihi)
+                                        </span>
+                                        <span>
+                                            @{
+                                                string etiketler = "";
+                                                if (item.Etikets.Count > 0)
+                                                {
+                                                    foreach (var tag in item.Etikets)
+                                                    {
+                                                        etiketler += tag.EtiketAdi + ",";
+                                                    }
+                                                    etiketler = etiketler.Substring(0, etiketler.Length - 1);
+                                                }
+                                            }
+                                            @if (etiketler != "")
+                                            {
+                                                <i class="ico-tag"></i>@etiketler
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span>İlişkili Makale Bulunamadı.</span>
+                                                }
+
+        </div>
+    </div>
+</article>

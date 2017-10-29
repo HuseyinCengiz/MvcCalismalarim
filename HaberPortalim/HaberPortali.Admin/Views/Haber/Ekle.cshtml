@@ -1,0 +1,71 @@
+﻿@model HaberPortali.Data.Model.Haber
+@{
+    ViewBag.Title = "Haber Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">@ViewBag.Title</header>
+            <div class="panel-body">
+                @using (Html.BeginForm("Ekle", "Haber", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary();
+                    <div class="form-group">
+                        <label>Üst Kategori</label>
+                        @Html.DropDownListFor(x => x.KategoriID, new SelectList(ViewBag.Kategori, "ID", "KategoriAdi"), "Seçiniz", new { @class = "form-control", id = "KategoriID" })
+                    </div>
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", id = "Baslik", placeholder = "Haber Başlık" })
+                        </div>
+                        <div class="form-group">
+                            <label>Kısa Açıklama</label>
+                            @*  @Html.TextAreaFor(x => x.KisaAciklama, new { @class = "form-control", id = "KisaAciklama", placeholder = "Haber Kısa Açıklama" })*@
+                            @Html.TextArea("KisaAciklama")
+                            <script type="text/javascript">
+                                var editor = CKEDITOR.instances['KisaAciklama'];
+                                if (editor) { editor.destroy(true); }
+                                CKEDITOR.replace("KisaAciklama", { enterMode: CKEDITOR.ENTER_BR });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @* @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", id = "Aciklama", placeholder = "Haber Açıklama" })*@
+                            @Html.TextArea("Aciklama")
+                            <script type="text/javascript">
+                                var editor = CKEDITOR.instances['Aciklama'];
+                                if (editor) { editor.destroy(true); }
+                                CKEDITOR.replace('Aciklama', { enterMode: CKEDITOR.ENTER_BR })
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label>Etiketler</label>
+                            <input type="text" name="etiket" data-role="tagsinput" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Vitrin Resim</label>
+                            <input type="file" name="Resim" accept="image/*" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Detay Resim(ler)</label>
+                            <input type="file" name="DetayResim" accept="image/*" class="form-control" multiple />
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(x => x.AktifMi, new { id = "haberAktif", @checked = "checked" }) Aktif Mi ?
+                            </label>
+                        </div>
+                        <button class="btn btn-default">Kaydet</button>
+                        @*<a href="#" class="btn btn-default">Kaydet</a>*@
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Profil Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using Blogum.Models
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/ProfilEkle" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Profil</strong> Ekleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Biyografi</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                @Html.TextArea("Biyografim", htmlAttributes: new { @id = "editor1" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Twitter</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="Twitter" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Facebook</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="Facebook" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Google</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="Google" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">LinkedIn</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="LinkedIn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <input type="submit" class="btn btn-primary pull-right" value="Ekle" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.instances['editor1'];
+        if (editor) { editor.destroy(true); }
+        CKEDITOR.replace('editor1', {
+            enterMode: CKEDITOR.ENTER_BR,
+        });
+        CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+    </script>
+}
+

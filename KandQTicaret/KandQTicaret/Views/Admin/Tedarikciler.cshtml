@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Tedarikçiler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using KandQTicaret.Models
+@model IEnumerable<Tedarikci>
+
+@section heads{
+    <link href="/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+}
+<div class="row">
+    <!-- Responsive table -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">
+                <div class="pull-right"><a href="/Admin/TedarikciEkle" class="btn btn-success btn-sm">+ Yeni Ekle</a></div>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Şirket Ad</th>
+                                <th>Müşteri Ad</th>
+                                <th>Adres</th>
+                                <th>Telefon</th>
+                                <th>Faks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Tedarikci item in Model)
+                            {
+                                <tr>
+                                    <td><span class="label label-success">@item.Id</span></td>
+                                    <td>@item.SirketAdi</td>
+                                    <td>@item.MusteriAdi</td>
+                                    <td>@item.Adres</td>
+                                    <td>@item.Telefon</td>
+                                    <td>@item.Faks</td>
+                                    <td>
+                                        <a href="@Url.Action("TedarikciDuzenle","Admin",routeValues:new { id = item.Id })" class="btn btn-default btn-sm">Düzenle</a>
+                                        <button class="btn btn-default btn-sm tedarikcisil" data-id="@item.Id">Sil</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Responsive table -->
+</div>
+@section scripts{
+    <script src="/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script src="/Scripts/CommonScript.js"></script>
+}
+

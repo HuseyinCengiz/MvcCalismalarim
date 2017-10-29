@@ -1,0 +1,14 @@
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\HaberPortali.Data.dll.config
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\HaberPortali.Data.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\HaberPortali.Data.pdb
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\EntityFramework.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\EntityFramework.xml
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.csprojResolveAssemblyReference.cache
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.Migrations.Olustur.resources
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.Migrations.Olustur1.resources
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.Migrations.Olustur2.resources
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.csproj.GenerateResource.Cache
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.dll
+D:\Universite Calısmalar\C#\HaberPortalim\HaberPortali.Data\obj\Debug\HaberPortali.Data.pdb

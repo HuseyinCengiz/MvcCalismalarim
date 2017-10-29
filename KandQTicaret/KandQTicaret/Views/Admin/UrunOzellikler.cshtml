@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Ürün Özellikler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using KandQTicaret.Models
+@model IEnumerable<UrunOzellik>
+
+@section heads{
+    <link href="/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+}
+<div class="row">
+    <!-- Responsive table -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <header class="panel-heading">
+                <div class="pull-right"><a href="/Admin/UrunOzellikEkle" class="btn btn-success btn-sm">+ Yeni Ekle</a></div>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Urun</th>
+                                <th>Özellik Tip</th>
+                                <th>Özellik Değer</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (UrunOzellik item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Urun.Adi</td>
+                                    <td>@item.OzellikTip.Adi</td>
+                                    <td>@item.OzellikDeger.Adi</td>
+                                    <td>
+                                        <a href="@Url.Action("UrunOzellikSil", "Admin", new { UrunId = item.UrunID, OzellikTipId = item.OzellikTipID, OzellikDegerId = item.OzellikDegerID })" class="btn btn-default btn-sm urunozelliksil" data-id="@item">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Responsive table -->
+</div>
+@section scripts{
+    <script src="/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script src="/Scripts/CommonScript.js"></script>
+}
+
+
+
+

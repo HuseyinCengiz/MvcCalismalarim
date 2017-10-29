@@ -1,0 +1,4 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.DTO\bin\Debug\RepoPattern.DTO.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.DTO\bin\Debug\RepoPattern.DTO.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.DTO\obj\Debug\RepoPattern.DTO.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.DTO\obj\Debug\RepoPattern.DTO.pdb

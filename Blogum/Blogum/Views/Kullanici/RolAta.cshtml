@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Rol Ata";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Kullanici/RolAta" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Rol</strong> Atama</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Roller</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="RolAdi" class="form-control">
+                                <option value="0">Rol Seçiniz</option>
+                                @foreach (string item in ViewBag.Roller)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kullanıcılar</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="KullaniciAdi" class="form-control">
+                                <option value="0">Kullanıcı Seçiniz</option>
+                                @foreach (MembershipUser item in ViewBag.Kullanicilar)
+                                {
+                                    <option value="@item.UserName">@item.UserName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <button class="btn btn-primary pull-right">Rol Ata</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

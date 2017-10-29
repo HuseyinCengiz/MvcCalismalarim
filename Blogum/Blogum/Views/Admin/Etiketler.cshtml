@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Etiketler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using Blogum.Models;
+@model IEnumerable<Etiket>
+<!-- START RESPONSIVE TABLES -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Etiketler</h3>
+            </div>
+            <div class="panel-body panel-body-table">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-actions">
+                        <thead>
+                            <tr>
+                                <th width="50">Id</th>
+                                <th>Etiket Adı</th>
+                                <th width="100">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Etiket item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">@item.Id</td>
+                                    <td><strong>@item.EtiketAdi</strong></td>
+                                    <td width="15%">
+                                        <a href="/Admin/EtiketDuzenle/@item.Id" class="btn btn-warning btn-rounded btn-sm duzenle"><span class="fa fa-pencil"> Düzenle</span></a>
+                                        <a class="btn btn-danger btn-rounded btn-sm" id="etiketsil" data-sid="@item.Id"><span class="fa fa-times"> Sil</span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END RESPONSIVE TABLES -->

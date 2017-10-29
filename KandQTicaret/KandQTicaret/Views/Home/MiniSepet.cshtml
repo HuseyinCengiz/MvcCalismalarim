@@ -1,0 +1,72 @@
+﻿@using KandQTicaret.Models
+@using KandQTicaret.App_Classes
+@model IEnumerable<SepetItem>
+<div class="col-lg-3 col-md-4 hidden-sm hidden-xs shopping_cart pull-right">
+    <div class="row">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Hoşgeldin @User.Identity.Name</p>
+        }
+        else
+        {
+            <p>Hoşgeldin Ziyaretçi!  <a href="/Kullanici/GirisYap/" title="register account">Oturum</a> Açabilirsin.</p>
+        }
+
+        <a id="showCart" class="cart-contents" rel="nofollow" title="see basket" href="#">
+            <span class="pull-left">
+                Alışveriş Sepeti:
+                <span class="ajax_cart_quantity">@Model.Sum(x => x.Adet)</span>
+                <span class="ajax_cart_product_txt">Ürün</span>
+                <i class="icon icon-chevron-down pull-right"></i>
+            </span>
+            <i class="pull-left icon icon-shopping-cart main-color"></i>
+        </a>
+    </div>
+    <div class="cart_block block exclusive">
+        <div class="block_content">
+            <div class="cart_block_list">
+                <dl class="products">
+                    @foreach (var item in Model)
+                    {
+                        <dt class="first_item last_item">
+                            <a title="Example product" href="#" class="cart-images">
+                                <img alt="Example product" src="@item.Urun.Resims.FirstOrDefault(x=>x.Varsayilan==true).KucukYol" />
+                            </a>
+                            <div class="cart-info">
+                                <div class="product-name">
+                                    <span class="quantity-formated">
+                                        <span class="quantity">@item.Adet</span>x&nbsp;
+                                    </span>
+                                    <a class="cart_block_product_name" title="@item.Urun.Adi" href="#">@item.Urun.Adi</a>
+                                </div>
+                                <div class="product-atributes">
+                                    <a title="Example product" href="#">Özellikleri</a>
+                                </div>
+                                <span class="price">@item.Urun.Fiyat.ToString("C2")</span>
+                                <span class="remove_link">
+                                    <a href="#" class="sepettencikar" data-id="@item.Urun.Id" class="ajax_cart_block_remove_link" rel="nofollow"></a>
+                                </span>
+                            </div>
+                        </dt>
+                    }
+                    <dd></dd>
+                </dl>
+                @if (Sepet.AktifSepet.Urunler.Count <= 0)
+                {
+                    <p class="cart_block_no_products pull-left"> Sepetinizde Hiç Ürün Bulunmamaktadır.</p>
+                }
+                <div class="cart-prices">
+                    <div class="cart-prices-line first-line">
+                        <span>Toplam:</span>
+                        <span class="price">@Sepet.AktifSepet.ToplamTutar.ToString("C2")</span>
+                    </div>
+                </div>
+                <p class="clearBoth cart-buttons">
+                    <a rel="nofollow" title="Check out" href="/Home/BuyukSepet/" class="button" id="button_order_cart">
+                       Alışverişi Tamamla
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div><!-- .cart_block -->
+</div>

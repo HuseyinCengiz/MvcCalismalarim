@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ScroolPaging.Models.Kullanici>
+
+@foreach (ScroolPaging.Models.Kullanici item in Model)
+{
+    <div style="border:1px solid red; width:20%; padding-top:10px; margin-bottom:10px;">
+        <ul>
+            <li>Adı:<span>@item.Adi</span></li>
+            <li>Soyadı:<span>@item.Soyadi</span></li>
+        </ul>
+    </div>
+}
+

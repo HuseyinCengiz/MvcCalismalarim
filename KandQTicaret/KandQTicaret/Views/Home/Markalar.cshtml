@@ -1,0 +1,25 @@
+﻿@using KandQTicaret.Models
+@model IEnumerable<Marka>
+
+<div class="manufacturers carousel-style animated" data-fx="fadeIn">
+    <div class="heading_block margin-bottom">
+        <h4 class="pull-left">
+            <i class="icon icon-plus-circle main-color"></i>
+            <strong>İmalatçılarımız</strong>
+        </h4>
+        <div class="arrow_container pull-right">
+            <a href="#" class="arrow-ph arrow-prev" title="Previous slide"><i class="icon icon-angle-left"></i></a>
+            <a href="#" class="arrow-ph arrow-next" title="Next slide"><i class="icon icon-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="product_list_ph owl-carousel-ph clearBoth" data-max-items="6">
+            @foreach (Marka item in Model)
+            {
+                <div class="col-md-2 col-sm-2 col-xs-12 item">
+                    <a href="#" title="view manufacturer"><img src="@item.Resim.KucukYol" alt="" class="img-repsonsive" /></a>
+                </div>
+            }
+        </div>
+    </div>
+</div><!-- .manufacturers -->

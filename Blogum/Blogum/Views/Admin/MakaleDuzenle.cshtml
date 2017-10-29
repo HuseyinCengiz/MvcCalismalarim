@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Makale Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models
+@model Makale
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Admin/MakaleDuzenle" method="post" enctype="multipart/form-data">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Makale</strong> Düzenleme</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Başlık</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="Baslik" value="@Model.Baslik" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kısa Açıklama</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <input type="text" class="form-control" name="KisaAciklama" value="@Model.KisaAciklama" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Açıklama</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                @Html.TextArea("Aciklama", Model.Aciklama, htmlAttributes: new { @id = "editor1" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Etiketler</label>
+                        <div class="col-md-6 col-xs-12">
+                            @{
+                                string etiketler = "";
+                                if (Model.Etikets.Count > 0)
+                                {
+                                    foreach (var tag in Model.Etikets)
+                                    {
+                                        etiketler += tag.EtiketAdi + ",";
+                                    }
+                                    etiketler = etiketler.Substring(0, etiketler.Length - 1);
+                                }
+                            }
+                            @if (etiketler == "")
+                            {
+                            <input type="text" class="tagsinput" name="Etiketler" />
+                            }
+                            else
+                            {
+                            <input type="text" class="tagsinput" name="Etiketler" value="@etiketler" />
+                            }
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Resim</label>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <input type="file" class="fileinput btn-primary" name="MakaleResim" id="filename" title="Dosya Aç" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Kategori</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select name="KategoriID" class="form-control">
+                                <option value="0">Kategori Seçiniz</option>
+                                @foreach (Kategori item in ViewBag.Kategoriler)
+                                {
+                                <option value="@item.Id">@item.KategoriAdi</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                </div>
+                <div class="panel-footer">
+                    <span style="color:rgb(203, 87, 5)">@ViewBag.Mesaj</span>
+                    <input type="submit" class="btn btn-primary pull-right" value="Düzenle" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="/Content/AdminTheme/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.instances['editor1'];
+        if (editor) { editor.destroy(true); }
+        CKEDITOR.replace('editor1', {
+            enterMode: CKEDITOR.ENTER_BR,
+        });
+        CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+    </script>
+}
+
+
+
+

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AE7BBCE-69FB-4479-9C09-934212CE6DA5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KandQTicaret</RootNamespace>
+    <AssemblyName>KandQTicaret</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Layout\Admin\blank.html" />
+    <Content Include="Layout\Admin\bootstrap.html" />
+    <Content Include="Layout\Admin\boxed.html" />
+    <Content Include="Layout\Admin\buttons.html" />
+    <Content Include="Layout\Admin\calendar.html" />
+    <Content Include="Layout\Admin\charts.html" />
+    <Content Include="Layout\Admin\email.html" />
+    <Content Include="Layout\Admin\error.html" />
+    <Content Include="Layout\Admin\forms.html" />
+    <Content Include="Layout\Admin\forms_elements.html" />
+    <Content Include="Layout\Admin\grid.html" />
+    <Content Include="Layout\Admin\index-2.html" />
+    <Content Include="Layout\Admin\index.html" />
+    <Content Include="Layout\Admin\login.html" />
+    <Content Include="Layout\Admin\panels.html" />
+    <Content Include="Layout\Admin\search.html" />
+    <Content Include="Layout\Admin\sidebar_compact.html" />
+    <Content Include="Layout\Admin\sidebar_right.html" />
+    <Content Include="Layout\Admin\tables.html" />
+    <Content Include="Scripts\CommonScript.js" />
+    <Content Include="Layout\KandQ\404.html" />
+    <Content Include="Layout\KandQ\blog-grid.html" />
+    <Content Include="Layout\KandQ\blog-list.html" />
+    <Content Include="Layout\KandQ\blog-single.html" />
+    <Content Include="Layout\KandQ\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Layout\KandQ\category.html" />
+    <Content Include="Layout\KandQ\contact.html" />
+    <Content Include="Layout\KandQ\css\animate.css" />
+    <Content Include="Layout\KandQ\css\bootstrap.min.css" />
+    <Content Include="Layout\KandQ\css\category.css" />
+    <Content Include="Layout\KandQ\css\font-awesome.css" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_diagonals-thick_90_eeeeee_40x40.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_flat_15_cd0a0a_40x100.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_glass_100_e4f1fb_1x400.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_glass_50_3baae3_1x400.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_glass_80_d7ebf9_1x400.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_highlight-hard_100_f2f5f7_1x100.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_highlight-hard_70_000000_1x100.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_highlight-soft_100_deedf7_1x100.html" />
+    <Content Include="Layout\KandQ\css\images\ui-bg_highlight-soft_25_ffef8f_1x100.html" />
+    <Content Include="Layout\KandQ\css\images\ui-icons_2694e8_256x240.html" />
+    <Content Include="Layout\KandQ\css\images\ui-icons_2e83ff_256x240.html" />
+    <Content Include="Layout\KandQ\css\images\ui-icons_3d80b3_256x240.html" />
+    <Content Include="Layout\KandQ\css\images\ui-icons_72a7cf_256x240.html" />
+    <Content Include="Layout\KandQ\css\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="Layout\KandQ\css\jquery-ui.css" />
+    <Content Include="Layout\KandQ\css\magnific-popup.css" />
+    <Content Include="Layout\KandQ\css\main.css" />
+    <Content Include="Layout\KandQ\css\modules\ph_megamenu.css" />
+    <Content Include="Layout\KandQ\css\modules\ph_simpleblog.css" />
+    <Content Include="Layout\KandQ\css\order.css" />
+    <Content Include="Layout\KandQ\css\owl.carousel.css" />
+    <Content Include="Layout\KandQ\css\owl.video.play.html" />
+    <Content Include="Layout\KandQ\css\product.css" />
+    <Content Include="Layout\KandQ\css\selectBox.css" />
+    <Content Include="Layout\KandQ\elements.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfontd41d.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfonte0a5-2.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfonte0a5-3.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfonte0a5-4.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfonte0a5.html" />
+    <Content Include="Layout\KandQ\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="Layout\KandQ\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="Layout\KandQ\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="Layout\KandQ\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="Layout\KandQ\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Layout\KandQ\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="Layout\KandQ\form.html" />
+    <Content Include="Layout\KandQ\form\ajax.js" />
+    <Content Include="Layout\KandQ\images\blog_bg.png" />
+    <Content Include="Layout\KandQ\images\header.png" />
+    <Content Include="Layout\KandQ\images\ico\favicon.ico" />
+    <Content Include="Layout\KandQ\images\logo.png" />
+    <Content Include="Layout\KandQ\images\pattern.png" />
+    <Content Include="Layout\KandQ\images\price_arrow.png" />
+    <Content Include="Layout\KandQ\images\products\big.jpg" />
+    <Content Include="Layout\KandQ\images\products\big2.jpg" />
+    <Content Include="Layout\KandQ\images\products\blog.jpg" />
+    <Content Include="Layout\KandQ\images\products\blog.png" />
+    <Content Include="Layout\KandQ\images\products\category.jpg" />
+    <Content Include="Layout\KandQ\images\products\company.jpg" />
+    <Content Include="Layout\KandQ\images\products\mega.jpg" />
+    <Content Include="Layout\KandQ\images\products\portfolio1.jpg" />
+    <Content Include="Layout\KandQ\images\products\portfolio2.jpg" />
+    <Content Include="Layout\KandQ\images\products\portfolio3.jpg" />
+    <Content Include="Layout\KandQ\images\products\product1.jpg" />
+    <Content Include="Layout\KandQ\images\products\product2.jpg" />
+    <Content Include="Layout\KandQ\images\products\product3.jpg" />
+    <Content Include="Layout\KandQ\images\products\product3_2.jpg" />
+    <Content Include="Layout\KandQ\images\products\product4.jpg" />
+    <Content Include="Layout\KandQ\images\products\product5.jpg" />
+    <Content Include="Layout\KandQ\images\products\small.jpg" />
+    <Content Include="Layout\KandQ\images\products\subcategory.jpg" />
+    <Content Include="Layout\KandQ\images\product_hover.png" />
+    <Content Include="Layout\KandQ\images\selectarrow.png" />
+    <Content Include="Layout\KandQ\images\slider\1.jpg" />
+    <Content Include="Layout\KandQ\images\slider\2.jpg" />
+    <Content Include="Layout\KandQ\images\slider\banner.jpg" />
+    <Content Include="Layout\KandQ\images\slider\banner1.png" />
+    <Content Include="Layout\KandQ\index-boxed.html" />
+    <Content Include="Layout\KandQ\index-full.html" />
+    <Content Include="Layout\KandQ\index-main.html" />
+    <Content Include="Layout\KandQ\index-right.html" />
+    <Content Include="Layout\KandQ\index-sticky.html" />
+    <Content Include="Layout\KandQ\js\libraries\jquery-migrate.js" />
+    <Content Include="Layout\KandQ\js\libraries\jquery-ui.min.js" />
+    <Content Include="Layout\KandQ\js\libraries\jquery.js" />
+    <Content Include="Layout\KandQ\js\libraries\modernizr.js" />
+    <Content Include="Layout\KandQ\js\main.js" />
+    <Content Include="Layout\KandQ\js\plugins\bootstrap-filestyle.min.js" />
+    <Content Include="Layout\KandQ\js\plugins\detectmobilebrowser.js" />
+    <Content Include="Layout\KandQ\js\plugins\height.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.appear.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.cookie.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.hoverIntent.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.isotope.min.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.magnific-popup.min.js" />
+    <Content Include="Layout\KandQ\js\plugins\jquery.selectBox.js" />
+    <Content Include="Layout\KandQ\js\plugins\owl.carousel.min.js" />
+    <Content Include="Layout\KandQ\js\plugins\ph_megamenu.js" />
+    <Content Include="Layout\KandQ\js\plugins\unslider.min.js" />
+    <Content Include="Layout\KandQ\portfolio.html" />
+    <Content Include="Layout\KandQ\product.html" />
+    <Content Include="Layout\KandQ\shopping-cart.html" />
+    <Content Include="Layout\KandQ\sitemap.html" />
+    <Content Include="Layout\KandQ\text.html" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\HomeScript.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery-validation\jquery.validate.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\sweetalert\sweetalert.css" />
+    <Content Include="Scripts\sweetalert\sweetalert.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Classes\Context.cs" />
+    <Compile Include="App_Classes\jsonBilgi.cs" />
+    <Compile Include="App_Classes\KullaniciBilgi.cs" />
+    <Compile Include="App_Classes\Sepet.cs" />
+    <Compile Include="App_Classes\Settings.cs" />
+    <Compile Include="App_Classes\Siparis.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Applications.cs" />
+    <Compile Include="Models\aspnet_Membership.cs" />
+    <Compile Include="Models\aspnet_Paths.cs" />
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs" />
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs" />
+    <Compile Include="Models\aspnet_Profile.cs" />
+    <Compile Include="Models\aspnet_Roles.cs" />
+    <Compile Include="Models\aspnet_SchemaVersions.cs" />
+    <Compile Include="Models\aspnet_Users.cs" />
+    <Compile Include="Models\aspnet_WebEvent_Events.cs" />
+    <Compile Include="Models\KandQContext.cs" />
+    <Compile Include="Models\Kargo.cs" />
+    <Compile Include="Models\Kategori.cs" />
+    <Compile Include="Models\Mapping\aspnet_ApplicationsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_MembershipMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PathsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PersonalizationAllUsersMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PersonalizationPerUserMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_ProfileMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_RolesMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_SchemaVersionsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_UsersMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_WebEvent_EventsMap.cs" />
+    <Compile Include="Models\Mapping\KargoMap.cs" />
+    <Compile Include="Models\Mapping\KategoriMap.cs" />
+    <Compile Include="Models\Mapping\MarkaMap.cs" />
+    <Compile Include="Models\Mapping\MusteriAdreMap.cs" />
+    <Compile Include="Models\Mapping\OzellikDegerMap.cs" />
+    <Compile Include="Models\Mapping\OzellikTipMap.cs" />
+    <Compile Include="Models\Mapping\ResimMap.cs" />
+    <Compile Include="Models\Mapping\SatiMap.cs" />
+    <Compile Include="Models\Mapping\SatisDetayMap.cs" />
+    <Compile Include="Models\Mapping\SatisDurumMap.cs" />
+    <Compile Include="Models\Mapping\SatisOzellikMap.cs" />
+    <Compile Include="Models\Mapping\TedarikciMap.cs" />
+    <Compile Include="Models\Mapping\UrunMap.cs" />
+    <Compile Include="Models\Mapping\UrunOzellikMap.cs" />
+    <Compile Include="Models\Mapping\UstKategoriMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_ApplicationsMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_MembershipUsersMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_ProfilesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_RolesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_UsersInRolesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_UsersMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_PathsMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_SharedMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_UserMap.cs" />
+    <Compile Include="Models\Marka.cs" />
+    <Compile Include="Models\MusteriAdre.cs" />
+    <Compile Include="Models\OzellikDeger.cs" />
+    <Compile Include="Models\OzellikTip.cs" />
+    <Compile Include="Models\Resim.cs" />
+    <Compile Include="Models\Sati.cs" />
+    <Compile Include="Models\SatisDetay.cs" />
+    <Compile Include="Models\SatisDurum.cs" />
+    <Compile Include="Models\SatisOzellik.cs" />
+    <Compile Include="Models\Tedarikci.cs" />
+    <Compile Include="Models\Urun.cs" />
+    <Compile Include="Models\UrunOzellik.cs" />
+    <Compile Include="Models\UstKategori.cs" />
+    <Compile Include="Models\vw_aspnet_Applications.cs" />
+    <Compile Include="Models\vw_aspnet_MembershipUsers.cs" />
+    <Compile Include="Models\vw_aspnet_Profiles.cs" />
+    <Compile Include="Models\vw_aspnet_Roles.cs" />
+    <Compile Include="Models\vw_aspnet_Users.cs" />
+    <Compile Include="Models\vw_aspnet_UsersInRoles.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_Paths.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_Shared.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Shared\SiteLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UstKategoriEkle.cshtml" />
+    <Content Include="Views\Admin\UstKategoriler.cshtml" />
+    <Content Include="Views\Admin\KategoriEkle.cshtml" />
+    <Content Include="Views\Admin\Kategoriler.cshtml" />
+    <Content Include="Views\Admin\UstKategoriDuzenle.cshtml" />
+    <Content Include="Views\Admin\KategoriDuzenle.cshtml" />
+    <Content Include="Views\Admin\Markalar.cshtml" />
+    <Content Include="Views\Admin\MarkaEkle.cshtml" />
+    <Content Include="Views\Admin\MarkaDuzenle.cshtml" />
+    <Content Include="Views\Admin\OzellikTipleri.cshtml" />
+    <Content Include="Views\Admin\OzellikTipEkle.cshtml" />
+    <Content Include="Views\Admin\OzellikDegerleri.cshtml" />
+    <Content Include="Views\Admin\OzellikDegerEkle.cshtml" />
+    <Content Include="Views\Admin\Urunler.cshtml" />
+    <Content Include="Views\Admin\Tedarikciler.cshtml" />
+    <Content Include="Views\Admin\TedarikciEkle.cshtml" />
+    <Content Include="Views\Admin\UrunEkle.cshtml" />
+    <Content Include="Views\Admin\UrunResimEkle.cshtml" />
+    <Content Include="Views\Admin\UrunDuzenle.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikEkle.cshtml" />
+    <Content Include="Views\Admin\OzellikTipWidget.cshtml" />
+    <Content Include="Views\Admin\OzellikDegerWidget.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikler.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\Markalar.cshtml" />
+    <Content Include="Views\Home\Urunler.cshtml" />
+    <Content Include="Views\Home\Kategoriler.cshtml" />
+    <Content Include="Views\Home\YeniUrunler.cshtml" />
+    <Content Include="Views\Home\PopulerUrunler.cshtml" />
+    <Content Include="Views\Home\MiniSepet.cshtml" />
+    <Content Include="Views\Home\UrunDetay.cshtml" />
+    <Content Include="Views\Kullanici\KayitOl.cshtml" />
+    <Content Include="Views\Kullanici\GirisYap.cshtml" />
+    <Content Include="Views\Kullanici\RolEkle.cshtml" />
+    <Content Include="Views\Kullanici\Roller.cshtml" />
+    <Content Include="Views\Kullanici\RolAta.cshtml" />
+    <Content Include="Views\Kullanici\Kullanicilar.cshtml" />
+    <Content Include="Views\Home\BuyukSepet.cshtml" />
+    <Content Include="Views\Home\UstMenuKategoriler.cshtml" />
+    <Content Include="Views\Home\KategoriyeGoreUrunler.cshtml" />
+    <Content Include="Views\Home\KategoriyeGoreUrunlerWidget.cshtml" />
+    <Content Include="Views\Kullanici\AdresDuzenle.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Layout\Admin\css\" />
+    <Folder Include="Layout\Admin\fonts\" />
+    <Folder Include="Layout\Admin\img\" />
+    <Folder Include="Layout\Admin\js\" />
+    <Folder Include="Layout\Admin\placeholders\" />
+    <Folder Include="Layout\MarkaResim\" />
+    <Folder Include="Layout\UrunResim\Kucuk\" />
+    <Folder Include="Layout\UrunResim\Orta\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15389</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15389/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

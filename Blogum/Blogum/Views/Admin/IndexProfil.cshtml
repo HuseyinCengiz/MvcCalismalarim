@@ -1,0 +1,16 @@
+﻿@model MembershipUser
+
+<li class="xn-profile">
+    <a href="/Admin/Index" class="profile-mini">
+        <img src="@ViewBag.KullaniciResim" alt="@Model.UserName" />
+    </a>
+    <div class="profile">
+        <div class="profile-image">
+            <img src="@ViewBag.KullaniciResim" alt="@Model.UserName" />
+        </div>
+        <div class="profile-data">
+            <div class="profile-data-name">@Model.UserName</div>
+            <div class="profile-data-title">Web Developer/Designer</div>
+        </div>
+    </div>
+</li>

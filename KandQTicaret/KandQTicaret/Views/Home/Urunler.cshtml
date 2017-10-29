@@ -1,0 +1,11 @@
+﻿<div class="columns row">
+    <div class="center_column col-md-9 col-sm-8 col-xs-12 col-md-push-3 col-sm-push-4">
+        <div class="background">
+            @{
+                Html.RenderAction("PopulerUrunler", "Home");
+                Html.RenderAction("YeniUrunler", "Home");
+            }
+        </div><!-- .background -->
+    </div><!--. center_column -->
+    @{Html.RenderAction("Kategoriler", "Home");}
+</div><!-- .columns -->

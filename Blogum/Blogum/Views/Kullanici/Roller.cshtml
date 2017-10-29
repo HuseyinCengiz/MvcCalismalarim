@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Roller";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Blogum.Models
+@model List<string>
+
+<!-- START RESPONSIVE TABLES -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Kullanıcılar</h3>
+            </div>
+            <div class="panel-body panel-body-table">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-actions">
+                        <thead>
+                            <tr>
+                                <th>Rol Adı</th>
+                                <th width="100">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (string item in Model)
+                            {
+                                <tr>
+                                    <td>@item</td>
+                                    <td width="15%">
+                                        <a class="btn btn-danger btn-rounded btn-sm" id="rolsil" data-sad="@item"><span class="fa fa-times"> Sil</span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END RESPONSIVE TABLES -->

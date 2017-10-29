@@ -1,0 +1,9 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\RepoPattern.Entity.dll.config
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\RepoPattern.Entity.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\RepoPattern.Entity.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\EntityFramework.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\EntityFramework.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\obj\Debug\RepoPattern.Entity.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Entity\obj\Debug\RepoPattern.Entity.pdb

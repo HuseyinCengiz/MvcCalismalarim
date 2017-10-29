@@ -1,0 +1,29 @@
+﻿@using Blogum.Models;
+@model IEnumerable<Etiket>
+
+<div class="entry-widget">
+    <h5 class="widget-title">Etiketler</h5>
+    <div class="tag">
+        @{
+            string[] siniflar = { "", "large", "madium" };
+            Random r = new Random();
+            int rastsayi = 0;
+        }
+        @foreach (var item in Model)
+        {
+            rastsayi = r.Next(0, siniflar.Length);
+            if (siniflar[rastsayi] == "")
+            {
+                <a href="#">@item.EtiketAdi</a>
+            }
+            if (siniflar[rastsayi] == "large")
+            {
+                <a href="#"><span class="large">@item.EtiketAdi</span></a>
+            }
+            if (siniflar[rastsayi] == "madium")
+            {
+                <a href="#"><span class="madium">@item.EtiketAdi</span></a>
+            }
+        }
+    </div>
+</div>

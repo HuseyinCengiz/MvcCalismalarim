@@ -1,0 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Slab:400,300,700&amp;subset=latin,latin-ext);
+.nolist {
+  list-style: none;
+}
+.clearBoth {
+  clear: both;
+}
+.content_scene_cat_bg {
+  background: url(../images/products/category.jpg) no-repeat top center;
+  background-size: cover;
+  min-height: 314px;
+  position: relative;
+}
+.content_scene_cat_bg .cat_desc {
+  position: absolute;
+  top: 66px;
+  left: 48px;
+}
+.content_scene_cat_bg .cat_desc h2 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 10px 25px;
+}
+.content_scene_cat_bg .cat_desc .txt {
+  clear: both;
+  float: none;
+  padding: 15px 25px;
+  background: rgba(44, 49, 59, 0.9);
+}
+.content_scene_cat_bg .cat_desc .txt p {
+  display: block;
+  font-size: 14px;
+  color: #dadada;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .content_scene_cat_bg .cat_desc {
+    left: 0;
+    top: 20px;
+  }
+}
+#subcategories {
+  background: #fff;
+  padding: 20px 5px;
+  margin: 0 0 25px 0;
+  overflow: hidden;
+}
+#subcategories h4 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+#subcategories ul {
+  margin-bottom: 40px;
+}
+#subcategories ul li {
+  position: relative;
+  margin-bottom: 15px;
+}
+#subcategories ul li:hover img {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+#subcategories ul li img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+#subcategories ul li .img {
+  position: relative;
+  z-index: 2;
+}
+#subcategories ul li .subcategory-name {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+#subcategories ul li .subcategory-name h5 {
+  display: inline-block;
+  text-align: center;
+  margin: 8% 0 0 0;
+  padding: 6px 8px;
+  position: relative;
+  z-index: 2;
+}
+#subcategories ul li .subcategory-name h5 a {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+.content_sortPagiBar {
+  border-top: 1px solid #dcdcdc;
+  padding: 25px 0;
+  float: left;
+  width: 100%;
+}
+.content_sortPagiBar .sortPagiBar {
+  background: #fff;
+  float: left;
+  width: 100%;
+  padding: 20px;
+}
+.content_sortPagiBar .list-style-buttons {
+  position: relative;
+}
+.content_sortPagiBar .list-style-buttons a {
+  border: 2px solid #ccc;
+  color: #333;
+  display: inline-block;
+  margin-right: 8px;
+  padding: 10px 12px;
+}
+.content_sortPagiBar .list-style-buttons a:hover,
+.content_sortPagiBar .list-style-buttons a.active {
+  border: 2px solid #2c313b;
+  background: #2c313b;
+  color: #fff;
+}
+.content_sortPagiBar .list-style-buttons .tooltip {
+  max-width: 60px;
+}
+.content_sortPagiBar .productsSortForm select {
+  min-width: 160px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .content_sortPagiBar .productsSortForm {
+    margin-bottom: 20px;
+  }
+}
+.content_sortPagiBar .compare-form .button {
+  height: 43px;
+  line-height: 43px;
+  font-size: 13px;
+}
+.content_sortPagiBar .compare-form .button span {
+  color: #ffb4c6;
+}
+.content_sortPagiBar label {
+  font-size: 13px;
+  font-weight: 400;
+  color: #2c313b;
+  margin: 0 20px 0 0;
+  text-transform: uppercase;
+}
+.content_sortPagiBar select {
+  -moz-appearance: none;
+  background-image: url("../images/selectarrow.png") !important;
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  text-indent: 0.01px;
+  text-overflow: "";
+  border: 2px solid #ccc;
+  height: 43px;
+  padding: 0 5px;
+  font-size: 13px;
+  color: #999;
+}
+@media (max-width: 767px) {
+  .content_sortPagiBar {
+    padding: 20px 0;
+  }
+  .content_sortPagiBar .list-style-buttons,
+  .content_sortPagiBar form {
+    margin-bottom: 20px;
+  }
+  .content_sortPagiBar .compare-form {
+    float: left!important;
+  }
+}
+#slider-range {
+  margin: 0 15px 25px 15px;
+}
+#slider-range.ui-widget-content {
+  background: #ccc;
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+#slider-range.ui-slider-horizontal {
+  height: 3px;
+}
+#slider-range .ui-slider-range {
+  background: #ff4178;
+}
+#slider-range .ui-state-default {
+  background: url(../images/price_arrow.png) no-repeat 0 0;
+  border: 0;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}

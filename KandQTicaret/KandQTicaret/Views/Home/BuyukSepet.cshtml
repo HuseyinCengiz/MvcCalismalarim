@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "BuyukSepet";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@using KandQTicaret.App_Classes
+@model List<SepetItem>
+
+@section heads{
+    <link href="/Layout/KandQ/css/order.css" rel="stylesheet" />
+    <link href="/Layout/KandQ/css/selectBox.css" rel="stylesheet" />
+}
+<div class="columns row">
+    <div class="col-xs-12">
+        <div class="breadcrumb">
+            <a class="home" title="Anasayfaya Dön" href="/Home/Index/">Anasayfa</a>
+            <span class="navigation_page">
+                <span class="navigation-pipe">&raquo;</span>
+                Alışveriş Sepeti
+            </span>
+        </div><!-- .breadcrumb -->
+    </div>
+
+    <div class="center_column col-xs-12">
+        <div class="background">
+            <div id="order-detail-content" class="clearBoth">
+                <h1>Alışveriş Sepeti Özeti</h1>
+                <span class="heading-counter pull-right">Ürünlerinizin Miktarı: <span style="color:#ff4178; font-weight:bold;">@Model.Sum(x => x.Adet)</span></span>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="cart_product first_item">Ürün</th>
+                            <th class="cart_description item">Açıklama</th>
+                            <th class="cart_avail item text-center">Stok</th>
+                            <th class="cart_unit item text-right">Fiyat</th>
+                            <th class="cart_quantity item text-center">Miktar</th>
+                            <th class="cart_total item text-right">Toplam</th>
+                            <th class="cart_delete last_item">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int sayac = 0; }
+                        @foreach (var item in Model)
+            {
+                if (sayac % 2 == 1)
+                {
+                                <tr class="cart_item odd" data-urunid="@item.Urun.Id">
+                                    <td class="cart_product">
+                                        <a href="#"><img width="67" height="98" alt="@item.Urun.Adi" src="@item.Urun.Resims.FirstOrDefault(x=>x.Varsayilan==true).KucukYol"></a>
+                                    </td>
+                                    <td class="cart_description">
+                                        <input type="hidden" class="urunid" value="@item.Urun.Id" />
+                                        <p class="product-name"><a href="#">@item.Urun.Adi</a></p>
+                                        <small><a href="#">Özellikler</a></small>
+                                    </td>
+                                    @if (item.Urun.Stok > 0)
+                                    {
+                                        <td class="cart_avail"><span class="label label-success">Stokta</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="cart_avail"><span class="label label-danger">Stokta Yok</span></td>
+                                    }
+                                    <td data-title="Unit price" class="cart_unit">
+                                        <ul class="price">
+
+                                            @if (item.Urun.IndirimliMi)
+                                            {
+                                                decimal indirimliFiyat = (item.Urun.Fiyat - ((item.Urun.Fiyat * item.Urun.IndirimOrani.Value) / 100));
+                                                <li class="price special-price">@indirimliFiyat.ToString("C2")</li>
+                                                <li class="old-price">@item.Urun.Fiyat.ToString("C2")</li>}
+                                            else
+                                            {
+                                                <li class="price">@item.Urun.Fiyat.ToString("C2")</li>
+                                            }
+                                        </ul>
+                                    </td>
+                                    <td data-title="Amount" class="cart_quantity text-center">
+                                        <input type="text" name="quantity" value="@item.Adet" class="cart_quantity_input" autocomplete="off" size="2">
+                                    </td>
+                                    <td data-title="Total" class="cart_total">
+                                        <span id="total_product_price_1_1_0" class="price fiyatim" data-fiyat="@item.Tutar">@item.Tutar.ToString("C2")</span>
+                                    </td>
+                                    <td class="cart_delete text-center">
+                                        <div>
+                                            <a href="#" class="cart_quantity_delete" title="Delete" rel="nofollow"><i class="icon icon-times"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="cart_item even" data-urunid="@item.Urun.Id">
+                                    <td class="cart_product">
+                                        <a href="#"><img width="67" height="98" alt="@item.Urun.Adi" src="@item.Urun.Resims.FirstOrDefault(x=>x.Varsayilan==true).KucukYol"></a>
+                                    </td>
+                                    <td class="cart_description">
+                                        <input type="hidden" class="urunid" value="" />
+                                        <p class="product-name"><a href="#">@item.Urun.Adi</a></p>
+                                        <small><a href="#">Özellikler</a></small>
+                                    </td>
+                                    @if (item.Urun.Stok > 0)
+                                    {
+                                        <td class="cart_avail"><span class="label label-success">Stokta</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="cart_avail"><span class="label label-danger">Stokta Yok</span></td>
+                                    }
+                                    <td data-title="Unit price" class="cart_unit">
+                                        <ul class="price">
+
+                                            @if (item.Urun.IndirimliMi)
+                                            {
+                                                decimal indirimliFiyat = (item.Urun.Fiyat - ((item.Urun.Fiyat * item.Urun.IndirimOrani.Value) / 100));
+                                                <li class="price special-price">@indirimliFiyat.ToString("C2")</li>
+                                                <li class="old-price">@item.Urun.Fiyat.ToString("C2")</li>}
+                                            else
+                                            {
+                                                <li class="price">@item.Urun.Fiyat.ToString("C2")</li>
+                                            }
+                                        </ul>
+                                    </td>
+                                    <td data-title="Amount" class="cart_quantity text-center">
+                                        <input type="text" name="quantity" value="@item.Adet" class="cart_quantity_input" autocomplete="off" size="2">
+                                    </td>
+                                    <td data-title="Total" class="cart_total">
+                                        <span id="total_product_price_1_1_0" class="price fiyatim" data-fiyat="@item.Tutar">@item.Tutar.ToString("C2")</span>
+                                    </td>
+                                    <td class="cart_delete text-center">
+                                        <div>
+                                            <a href="#" class="cart_quantity_delete" title="Delete" rel="nofollow"><i class="icon icon-times"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            sayac++;
+                        }
+                    </tbody>
+                </table>
+            </div><!-- #order-detail-content -->
+            @{
+                if (Model.Count() > 0)
+                {
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form action="#" method="post" id="compare_shipping_form" class="row">
+                            <fieldset id="compare_shipping">
+                                <h4>Kargoyu Hesapla</h4>
+                                <div class="form-group">
+                                    <select id="id_country" name="KargoID">
+                                        <option value="0">Kargo Seçiniz</option>
+                                        @foreach (KandQTicaret.Models.Kargo item in ViewBag.Kargolar)
+                                        {
+                                            <option value="@item.Id">@item.SirketAdi</option>
+                                        }
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div class="summary-shopping col-md-4 col-sm-5 col-xs-12 pull-right">
+                        <div class="row">
+                            <div class="summary-bg">
+                                <h3>Özet</h3>
+                                <table>
+                                    <tr>
+                                        <td>Sepet Toplam Tutar</td>
+                                        <td id="total_product" class="price">@Model.Sum(x => x.Tutar).ToString("C2")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kargo Maliyeti</td>
+                                        <td class="price">Bedava Kargo</td>
+                                    </tr>
+                                    <tr class="cart_total_price">
+                                        <td class="total_price_container">
+                                            <span>Toplam</span>
+                                        </td>
+                                        <td id="total_price_container" class="price">
+                                            <span id="total_price" data-toplamfiyat="@Model.Sum(x => x.Tutar)">@Model.Sum(x => x.Tutar).ToString("C2")</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div><!-- .row -->
+                    </div><!-- .summary-shopping -->
+                }
+            }
+            
+            <div class="navigation-btn clearBoth">
+                <a href="/Home/Index/" class="pull-left button">Alışverişe Geri Dön</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (Model.Count() > 0)
+                    {
+                        <a href="#" id="satis_tamamla" class="pull-right button btn-primary">Alışverişi Tamamla</a>
+                    }
+
+                }
+            </div><!-- .navigation-btn -->
+        </div><!-- .background -->
+    </div><!--. center_column -->
+</div><!-- .columns -->
+@section scripts{
+    <script src="/Layout/KandQ/js/plugins/jquery.selectBox.js"></script>
+}

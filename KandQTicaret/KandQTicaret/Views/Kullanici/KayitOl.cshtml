@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@section heads{
+    <link href="~/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+}
+<div class="columns row">
+    <div class="col-xs-12">
+        <div class="breadcrumb">
+            <a class="home" title="Return to Home" href="#">Anasayfa</a>
+            <span class="navigation-pipe">&raquo;</span>
+            <span class="navigation_page">
+                <span itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <a title="Form" href="#" itemprop="item">
+                        <span itemprop="name">@ViewBag.Title</span>
+                    </a>
+                </span>
+                <span class="navigation-pipe">&raquo;</span>
+                Kayıt Formu
+            </span>
+        </div><!-- .breadcrumb -->
+    </div>
+    <div class="center_column col-md-9 col-sm-8 col-xs-12 col-md-push-3 col-sm-push-4">
+        <div class="background">
+            <form class="std box" id="account-creation_form">
+                <div class="account_creation">
+                    <fieldset>
+                        <h3 class="page-subheading"><span>Kayıt Formu</span></h3>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Kullanıcı Adı" name="KullaniciAdi" id="KullaniciAdi" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" placeholder="Şifre" name="Sifre" id="Sifre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" placeholder="Şifre Tekrar" name="SifreTekrar" id="SifreTekrar" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Email" name="Email" id="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Gizli Soru" name="GizliSoru" id="GizliSoru" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Gizli Cevap" name="GizliCevap" id="GizliCevap" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="submit clearfix">
+                    <a class="btn btn-default button button-medium" id="kayitol">
+                        <span>Kayıt Ol</span>
+                    </a>
+                </div>
+            </form>
+        </div><!-- .background -->
+    </div><!--. center_column -->
+
+    @{Html.RenderAction("Kategoriler", "Home");}
+</div><!-- .columns -->
+@section scripts{
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+}

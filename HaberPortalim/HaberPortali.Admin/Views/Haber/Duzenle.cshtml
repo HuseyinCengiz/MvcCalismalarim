@@ -1,0 +1,78 @@
+﻿
+@model HaberPortali.Data.Model.HaberEtiketModel
+@{
+    ViewBag.Title = "Haber Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+@using (Html.BeginForm("Duzenle", "Haber", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary();
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">@ViewBag.Title</header>
+                <div class="panel-body">
+                    @Html.HiddenFor(x=>x.Haber.ID)
+                    <form role="form">
+                        <div class="form-group">
+                            <label>Üst Kategori</label>
+                            @Html.DropDownListFor(x => x.Haber.KategoriID, new SelectList(ViewBag.Kategori, "ID", "KategoriAdi"), "Seçiniz", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            @Html.TextBoxFor(x => x.Haber.Baslik, new { @class = "form-control", id = "Baslik", placeholder = "Haber Başlık" })
+                        </div>
+                        <div class="form-group">
+                            <label>Kısa Açıklama</label>
+                            @*  @Html.TextAreaFor(x => x.KisaAciklama, new { @class = "form-control", id = "KisaAciklama", placeholder = "Haber Kısa Açıklama" })*@
+                            @Html.TextArea("Haber.KisaAciklama")
+                            <script type="text/javascript">
+                                var editor = CKEDITOR.instances['Haber.KisaAciklama'];
+                                if (editor) { editor.destroy(true); }
+                                CKEDITOR.replace("Haber.KisaAciklama", { enterMode: CKEDITOR.ENTER_BR });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @* @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", id = "Aciklama", placeholder = "Haber Açıklama" })*@
+                            @Html.TextArea("Haber.Aciklama")
+                            <script type="text/javascript">
+                                var editor = CKEDITOR.instances['Haber.Aciklama'];
+                                if (editor) { editor.destroy(true); }
+                                CKEDITOR.replace('Haber.Aciklama', { enterMode: CKEDITOR.ENTER_BR })
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label>Etiketler</label>
+                            @Html.TextBoxFor(x => x.EtiketAdi, new {@class="form-control",data_role="tagsinput" })
+                        </div>
+                        <div class="form-group">
+                            <label>Vitrin Resim</label>
+                            <input type="file" name="Resim" accept="image" class="form-control" />
+                            <img src="@Model.Haber.Resim" style="width:100px" />
+                        </div>
+                        <div class="form-group">
+                            <label>Detay Resim(ler)</label>
+                            <input type="file" name="DetayResim" accept="image" class="form-control" multiple />
+                            @foreach (var item in Model.Haber.Resims.Where(x => x.HaberID == Model.Haber.ID))
+                            {
+                                <img src="@item.ResimUrl" style="width:100px" />
+                                <a href="@Url.Action("ResimSil", "Haber", new { ID = item.ID })" >Sil</a>
+                            }
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(x => x.Haber.AktifMi, new { id = "haberAktif", @checked = "checked" }) Aktif Mi ?
+                            </label>
+                        </div>
+                        <button class="btn btn-default">Kaydet</button>
+                        @*<a href="#" class="btn btn-default">Kaydet</a>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

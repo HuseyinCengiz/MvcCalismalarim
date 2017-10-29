@@ -1,0 +1,84 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\csc.exe
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\vbc.exe
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\VBCSCompiler.exe
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.dll.config
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.SqlServer.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\PagedList.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\PagedList.Mvc.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Helpers.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Mvc.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Razor.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Deployment.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Razor.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.SqlServer.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\PagedList.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\PagedList.Mvc.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Razor.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Deployment.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Razor.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Helpers.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Mvc.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\obj\Debug\JqueryDialogExample.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\obj\Debug\JqueryDialogExample.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\JqueryDialogExample\JqueryDialogExample\obj\Debug\AjaxExample.csprojResolveAssemblyReference.cache
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\csc.exe
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\System.Collections.Immutable.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\System.Reflection.Metadata.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\vbc.exe
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\VBCSCompiler.exe
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\roslyn\VBCSCompiler.exe.config
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.dll.config
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\JqueryDialogExample.pdb
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.SqlServer.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.Web.Infrastructure.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\PagedList.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\PagedList.Mvc.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Helpers.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Mvc.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Razor.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Deployment.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Razor.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\EntityFramework.SqlServer.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\PagedList.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\PagedList.Mvc.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Razor.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Deployment.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Webpages.Razor.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Helpers.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\bin\System.Web.Mvc.xml
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\obj\Debug\AjaxExample.csprojResolveAssemblyReference.cache
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\obj\Debug\JqueryDialogExample.dll
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\obj\Debug\JqueryDialogExample.pdb
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\obj\Debug\JqueryDialogExample.Migrations.olustur.resources
+D:\Calismalarim\C#\JqueryDialogExample\JqueryDialogExample\obj\Debug\AjaxExample.csproj.GenerateResource.Cache

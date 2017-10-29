@@ -1,0 +1,231 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Layout/KandQ/images/ico/favicon.ico">
+    <title>KandQ E-Ticaret</title>
+    <link href="/Layout/KandQ/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/modules/ph_megamenu.css" rel="stylesheet" type="text/css" />
+    <link href="/Layout/KandQ/css/modules/ph_simpleblog.css" rel="stylesheet" type="text/css" />
+    <script src="/Layout/KandQ/js/libraries/modernizr.js"></script>
+    @RenderSection("heads", false)
+    <!--[if lt IE 9]>
+    <script src="/Layout/KandQ/js/ie/html5shiv.js"></script>
+    <script src="/Layout/KandQ/js/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body itemtype="http://schema.org/WebPage" itemscope="" class="index cssAnimate">
+    <div class="boxed-wrapper">
+        <div class="topbar">
+            <div class="container">
+                <div class="col-lg-8 col-md-7 hidden-xs shortlinks pull-right">
+                    <ul class="nolist row pull-right">
+                        <li><a href="/Home/Index">Anasayfa</a></li>
+                        <li><a href="/Home/BuyukSepet">Alışverişi Tamamla</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a href="/Kullanici/AdresDuzenle">Adres Düzenle</a></li>
+                            <li><a href="/Kullanici/CikisYap">Çıkış Yap</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Kullanici/KayitOl">Kayıt Ol</a></li>
+                            <li><a href="/Kullanici/GirisYap">Giriş Yap</a></li>
+                        }
+                    </ul>
+                </div><!-- .shortlinks -->
+            </div><!-- .container -->
+        </div><!-- .topbar -->
+        <header class="top">
+            <div class="container">
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="row">
+                        <a href="/Home/Index" class="logo" title="back to the homepage"><img src="/Layout/KandQ/images/logo.png" alt="Madrid" class="img-responsive" /></a>
+                    </div>
+                </div>
+                <div id="search_block_top" class="col-lg-offset-3 col-md-offset-2 col-sm-offset-1 col-md-3 col-sm-4 col-xs-12">
+                    <form method="get" action="#" id="searchbox" class="row">
+                        <p>
+                            <input class="search_query" type="text" id="search_query_top" name="search_query" placeholder="Anahtar Kelime Ara..." value="" />
+                            <span>
+                                <i class="icon icon-search"></i>
+                                <input class="main-color" type="submit" value="ok" />
+                            </span>
+                        </p>
+                    </form>
+                </div><!-- .search_block_top -->
+                <!-- .shopping-cart-mobile -->
+                <div id="sepet">
+                    @{Html.RenderAction("MiniSepet", "Home");}
+                </div>
+                <div class="ph_megamenu_mobile_toggle">
+                    <a class="show_megamenu" href="#"><i class="icon icon-bars"></i>Menü Göster</a>
+                    <a class="hide_megamenu" href="#"><i class="icon icon-times"></i>Menü Gizle</a>
+                </div>
+                <div id="ph_megamenu_wrapper">
+                    <nav role="navigation">
+                        <ul class="ph_megamenu" id="ph_megamenu">
+                            <li><a title="Home" href="/Home/Index/"><i class="icon icon-home"></i></a></li>
+                            <li class="has-submenu">
+                                <a title="PrestaHome" href="#"> <span class="">KandQ Ticaret</span></a>
+                                <ul class="dropdown">
+                                    <li class="with-icon"> <a href="#"> <i class="icon icon-facebook"></i> Facebook </a></li>
+                                    <li class="with-icon"> <a href="#"> <i class="icon icon-twitter"></i> Twitter </a></li>
+                                    <li class="with-icon"> <a href="#"> <i class="icon icon-heart"></i> KandQ </a></li>
+                                </ul>
+                            </li>
+                            @{ Html.RenderAction("UstMenuKategoriler","Home");}
+                            <li class="with-icon"><a title="Contact" href="/Layout/KandQ/contact.html"> <i class="icon icon-envelope"></i> <span class="">Contact</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div><!-- .container -->
+        </header>
+        <div class="container content">
+            @RenderBody()
+            @{Html.RenderAction("Markalar", "Home");}
+        </div><!-- .container -->
+        <div class="prefooter">
+            <div class="container">
+                <form id="newsletterRegistrationForm" class="col-md-7 col-sm-12 col-xs-12" action="#" method="post">
+                    <h5>NEWSLETTER</h5>
+                    <input id="newsletter_registration_email" class="account_input" type="email" name="email" placeholder="Your e-mail address" />
+                    <input class="button button-small btn-primary" type="submit" value="Save" />
+                </form>
+                <div class="col-md-5 col-sm-12 col-xs-12 social-icons">
+                    <div class="row">
+
+                        <div class="item dribbble">
+                            <a href="#"><i class="icon icon-dribbble"></i></a>
+                        </div>
+
+                        <div class="item facebook">
+                            <a href="#"><i class="icon icon-facebook"></i></a>
+                        </div>
+
+                        <div class="item twitter">
+                            <a href="#"><i class="icon icon-twitter"></i></a>
+                        </div>
+
+                        <div class="item google-plus">
+                            <a href="#"><i class="icon icon-google-plus"></i></a>
+                        </div>
+
+                        <div class="item behance">
+                            <a href="#"><i class="icon icon-behance"></i></a>
+                        </div>
+                    </div><!--. row -->
+                </div><!-- .social-icons -->
+            </div><!-- .container -->
+
+            <div class="prefooter-blocks">
+                <div class="container">
+                    <div class="row clearBoth">
+                        <div class="block_footer col-md-3 col-sm-6 col-xs-12">
+                            <h4>fast menu</h4>
+                            <ul>
+                                <li><a href="#">faq</a></li>
+                                <li><a href="#">terms and conditions</a></li>
+                                <li><a href="#">sitemap</a></li>
+                                <li><a href="#">store informations</a></li>
+                                <li><a href="#">contacts</a></li>
+                                <li><a href="#">store informations</a></li>
+                                <li><a href="#">contacts</a></li>
+                            </ul>
+                        </div><!-- .block_footer -->
+
+                        <div class="block_footer col-md-3 col-sm-6 col-xs-12">
+                            <h4>categories</h4>
+                            <ul>
+                                <li><a href="#">man</a></li>
+                                <li><a href="#">woman</a></li>
+                                <li><a href="#">pregnat</a></li>
+                                <li><a href="#">kids</a></li>
+                                <li><a href="#">contacts</a></li>
+                                <li><a href="#">top10</a></li>
+                                <li><a href="#">woman</a></li>
+                            </ul>
+                        </div><!-- .block_footer -->
+
+                        <div class="block_footer col-md-3 col-sm-6 col-xs-12">
+                            <h4>terms and conditions</h4>
+                            <ul>
+                                <li><a href="#">exchange</a></li>
+                                <li><a href="#">important informations</a></li>
+                                <li><a href="#">shipping</a></li>
+                                <li><a href="#">payment</a></li>
+                            </ul>
+                        </div><!-- .block_footer -->
+
+                        <div class="block_footer block_contact col-md-3 col-sm-6 col-xs-12" itemtype="http://schema.org/Organization" itemscope="">
+                            <h4 class="dark">contact with us</h4>
+                            <div class="item">
+                                <i class="pull-left icon icon-map-marker"></i>
+                                <p>
+                                    <span itemprop="name">Madrid Store</span>
+                                    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                        <span itemprop="streetAddress">Street 765/5,</span>
+                                        <span itemprop="postalCode">55-555</span>
+                                        <span itemprop="addressLocality">Madrid</span>
+                                    </span>
+                                </p>
+                            </div><!-- .item -->
+
+                            <div class="item even">
+                                <i class="pull-left icon icon-phone"></i>
+                                <p>
+                                    <span itemprop="telephone">+48.564342145</span>
+                                    <span>+48.564342146</span>
+                                </p>
+                            </div><!-- .item -->
+
+                            <div class="item last-item mail">
+                                <i class="pull-left icon icon-envelope"></i>
+                                <p>
+                                    <a href="#" itemprop="email">madrid@madrid.store.com</a>
+                                </p>
+                            </div><!-- .item -->
+
+                        </div><!-- .block_footer -->
+
+                    </div><!--. row -->
+                </div><!-- .container -->
+            </div><!-- .prefooter-blocks -->
+        </div><!-- .prefooter -->
+        <footer class="bottom">
+            <div class="container">
+                <p class="pull-left">All rights reserved. <strong>MADRID TEMPLATE 2015</strong></p>
+                <a href="#" class="main-color-txt pull-right totop"><i class="icon icon-chevron-up"></i></a>
+            </div><!-- .container -->
+        </footer>
+    </div><!-- .boxed-wrapper -->
+
+    <script src="/Layout/KandQ/js/libraries/jquery.js"></script>
+    <script src="/Scripts/HomeScript.js"></script>
+    <script src="/Layout/KandQ/js/libraries/jquery-migrate.js"></script>
+    <script src="/Layout/KandQ/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Layout/KandQ/js/plugins/unslider.min.js"></script>
+    <script src="/Layout/KandQ/js/plugins/owl.carousel.min.js"></script>
+    <script src="/Layout/KandQ/js/plugins/jquery.hoverIntent.js"></script>
+    <script src="/Layout/KandQ/js/plugins/ph_megamenu.js"></script>
+    <script src="/Layout/KandQ/js/plugins/height.js"></script>
+    <script src="/Layout/KandQ/js/plugins/detectmobilebrowser.js"></script>
+    <script src="/Layout/KandQ/js/plugins/jquery.appear.js"></script>
+    <script src="/Layout/KandQ/js/main.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

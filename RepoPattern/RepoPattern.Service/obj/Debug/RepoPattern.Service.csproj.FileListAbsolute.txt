@@ -1,0 +1,16 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Service.dll.config
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Service.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Service.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.DTO.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Entity.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Extension.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.ORM.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\EntityFramework.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.DTO.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Entity.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.Extension.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\RepoPattern.ORM.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\bin\EntityFramework.xml
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\obj\Debug\RepoPattern.Service.csprojResolveAssemblyReference.cache
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\obj\Debug\RepoPattern.Service.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Service\obj\Debug\RepoPattern.Service.pdb

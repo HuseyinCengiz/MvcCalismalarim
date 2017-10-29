@@ -1,0 +1,147 @@
+﻿<div class="entry-widget">
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-toggle="tab" href="#tab1">Popüler</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#tab2">Son</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#tab3">Yorum</a>
+        </li>
+    </ul><!-- Tab Panels -->
+    <div class="tab-content">
+        <!-- Tab Content 1 -->
+        <div class="tab-pane in active fadeInDown" id="tab1">
+            <ul class="posts-list">
+                @foreach (Blogum.Models.Makale item in ViewBag.PopiMakaleler)
+                {
+                    <li>
+                        <div class="widget-thumb">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                <img alt="" src="@item.Resim.KucukResimYol">
+                            </a>
+                        </div>
+                        <div class="widget-content">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                @item.Baslik
+                            </a>
+                            <div class="meta">
+                                <span>
+                                    <i class="ico-calendar-alt-fill"></i>
+                                    @String.Format("{0:d MMMM yyyy}", item.EklenmeTarihi)
+                                </span>
+                                <span>
+                                    @{
+                                        string etiketler = "";
+                                        if (item.Etikets.Count > 0)
+                                        {
+                                            foreach (var tag in item.Etikets)
+                                            {
+                                                etiketler += tag.EtiketAdi + ",";
+                                            }
+                                            etiketler = etiketler.Substring(0, etiketler.Length - 1);
+                                        }
+                                    }
+                                    @if (etiketler != "")
+                                    {
+                                        <i class="ico-tag"></i> @etiketler
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                                        }
+            </ul>
+        </div><!-- Tab Content 2 -->
+        <div class="tab-pane fadeInDown" id="tab2">
+            <ul class="posts-list">
+                @foreach (Blogum.Models.Makale item in ViewBag.SonMakaleler)
+                {
+                    <li>
+                        <div class="widget-thumb">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                <img alt="" src="@item.Resim.KucukResimYol">
+                            </a>
+                        </div>
+                        <div class="widget-content">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                @item.Baslik
+                            </a>
+                            <div class="meta">
+                                <span>
+                                    <i class="ico-calendar-alt-fill"></i>
+                                    @String.Format("{0:d MMMM yyyy}", item.EklenmeTarihi)
+                                </span>
+                                <span>
+                                    @{
+                                        string etiketler2 = "";
+                                        if (item.Etikets.Count > 0)
+                                        {
+                                            foreach (var tag in item.Etikets)
+                                            {
+                                                etiketler2 += tag.EtiketAdi + ",";
+                                            }
+                                            etiketler2 = etiketler2.Substring(0, etiketler2.Length - 1);
+                                        }
+                                    }
+                                    @if (etiketler2 != "")
+                                    {
+                                        <i class="ico-tag"></i> @etiketler2
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                                        }
+            </ul>
+        </div><!-- End Tab Content 2 -->
+        <!-- Tab Content 3 -->
+        <div class="tab-pane" id="tab3">
+            <ul class="posts-list">
+                @foreach (Blogum.Models.Makale item in ViewBag.YorumMakaleler)
+                {
+                    <li>
+                        <div class="widget-thumb">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                <img alt="" src="@item.Resim.KucukResimYol">
+                            </a>
+                        </div>
+                        <div class="widget-content">
+                            <a href="/Home/MakaleDetay/@item.Id">
+                                @item.Baslik
+                            </a>
+                            <div class="meta">
+                                <span>
+                                    <i class="ico-calendar-alt-fill"></i>
+                                    @String.Format("{0:d MMMM yyyy}", item.EklenmeTarihi)
+                                </span>
+                                <span>
+                                    @{
+                                        string etiketler3 = "";
+                                        if (item.Etikets.Count > 0)
+                                        {
+                                            foreach (var tag in item.Etikets)
+                                            {
+                                                etiketler3 += tag.EtiketAdi + ",";
+                                            }
+                                            etiketler3 = etiketler3.Substring(0, etiketler3.Length - 1);
+                                        }
+                                    }
+                                    @if (etiketler3 != "")
+                                    {
+                                    <i class="ico-tag"></i> @etiketler3
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                                        }
+            </ul>
+        </div><!-- End Tab Content 3 -->
+    </div><!-- End Tab Panels -->
+</div>

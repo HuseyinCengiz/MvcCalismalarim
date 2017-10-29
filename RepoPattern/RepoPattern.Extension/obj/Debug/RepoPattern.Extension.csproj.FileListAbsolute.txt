@@ -1,0 +1,4 @@
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Extension\bin\Debug\RepoPattern.Extension.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Extension\bin\Debug\RepoPattern.Extension.pdb
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Extension\obj\Debug\RepoPattern.Extension.dll
+C:\Users\HuseyinCengiz\Documents\Visual Studio 2015\Projects\RepoPattern\RepoPattern.Extension\obj\Debug\RepoPattern.Extension.pdb
